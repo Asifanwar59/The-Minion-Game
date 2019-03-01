@@ -1,6 +1,10 @@
 # The-Minion-Game
 Kevin and Stuart want to play the 'The Minion Game'.  
 
+## License
+The Minion Game is a challenge posted in Hackere rank website: https://www.hackerrank.com/challenges/the-minion-game/problem
+
+
 ## Game Rules
 Both players are given the same string, .
 Both players have to make substrings using the letters of the string .
