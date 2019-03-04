@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://www.hackerrank.com/challenges/the-minion-game/problem -->
+<html lang="en-us" style="--font-family-text:OpenSans, Arial, Helvetica, sans-serif; --font-family-input:SourceCodePro, monaco, Courier, monospace;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="react-tooltip">.__react_component_tooltip{border-radius:3px;display:inline-block;font-size:13px;left:-999em;opacity:0;padding:8px 21px;position:fixed;pointer-events:none;transition:opacity 0.3s ease-out;top:-999em;visibility:hidden;z-index:999}.__react_component_tooltip.allow_hover{pointer-events:auto}.__react_component_tooltip:before,.__react_component_tooltip:after{content:"";width:0;height:0;position:absolute}.__react_component_tooltip.show{opacity:0.9;margin-top:0px;margin-left:0px;visibility:visible}.__react_component_tooltip.type-dark{color:#fff;background-color:#222}.__react_component_tooltip.type-dark.place-top:after{border-top-color:#222;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-dark.place-bottom:after{border-bottom-color:#222;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-dark.place-left:after{border-left-color:#222;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-dark.place-right:after{border-right-color:#222;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-dark.border{border:1px solid #fff}.__react_component_tooltip.type-dark.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-dark.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-dark.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-dark.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-success{color:#fff;background-color:#8DC572}.__react_component_tooltip.type-success.place-top:after{border-top-color:#8DC572;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-success.place-bottom:after{border-bottom-color:#8DC572;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-success.place-left:after{border-left-color:#8DC572;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-success.place-right:after{border-right-color:#8DC572;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-success.border{border:1px solid #fff}.__react_component_tooltip.type-success.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-success.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-success.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-success.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-warning{color:#fff;background-color:#F0AD4E}.__react_component_tooltip.type-warning.place-top:after{border-top-color:#F0AD4E;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-warning.place-bottom:after{border-bottom-color:#F0AD4E;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-warning.place-left:after{border-left-color:#F0AD4E;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-warning.place-right:after{border-right-color:#F0AD4E;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-warning.border{border:1px solid #fff}.__react_component_tooltip.type-warning.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-warning.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-warning.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-warning.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-error{color:#fff;background-color:#BE6464}.__react_component_tooltip.type-error.place-top:after{border-top-color:#BE6464;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-error.place-bottom:after{border-bottom-color:#BE6464;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-error.place-left:after{border-left-color:#BE6464;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-error.place-right:after{border-right-color:#BE6464;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-error.border{border:1px solid #fff}.__react_component_tooltip.type-error.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-error.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-error.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-error.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-info{color:#fff;background-color:#337AB7}.__react_component_tooltip.type-info.place-top:after{border-top-color:#337AB7;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-info.place-bottom:after{border-bottom-color:#337AB7;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-info.place-left:after{border-left-color:#337AB7;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-info.place-right:after{border-right-color:#337AB7;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-info.border{border:1px solid #fff}.__react_component_tooltip.type-info.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-info.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-info.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-info.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-light{color:#222;background-color:#fff}.__react_component_tooltip.type-light.place-top:after{border-top-color:#fff;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-light.place-bottom:after{border-bottom-color:#fff;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-light.place-left:after{border-left-color:#fff;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-light.place-right:after{border-right-color:#fff;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-light.border{border:1px solid #222}.__react_component_tooltip.type-light.border.place-top:before{border-top:8px solid #222}.__react_component_tooltip.type-light.border.place-bottom:before{border-bottom:8px solid #222}.__react_component_tooltip.type-light.border.place-left:before{border-left:8px solid #222}.__react_component_tooltip.type-light.border.place-right:before{border-right:8px solid #222}.__react_component_tooltip.place-top{margin-top:-10px}.__react_component_tooltip.place-top:before{border-left:10px solid transparent;border-right:10px solid transparent;bottom:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-top:after{border-left:8px solid transparent;border-right:8px solid transparent;bottom:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-bottom{margin-top:10px}.__react_component_tooltip.place-bottom:before{border-left:10px solid transparent;border-right:10px solid transparent;top:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-bottom:after{border-left:8px solid transparent;border-right:8px solid transparent;top:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-left{margin-left:-10px}.__react_component_tooltip.place-left:before{border-top:6px solid transparent;border-bottom:6px solid transparent;right:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-left:after{border-top:5px solid transparent;border-bottom:5px solid transparent;right:-6px;top:50%;margin-top:-4px}.__react_component_tooltip.place-right{margin-left:10px}.__react_component_tooltip.place-right:before{border-top:6px solid transparent;border-bottom:6px solid transparent;left:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-right:after{border-top:5px solid transparent;border-bottom:5px solid transparent;left:-6px;top:50%;margin-top:-4px}.__react_component_tooltip .multi-line{display:block;padding:2px 0px;text-align:center}</style>
+  
+  
+  <meta property="og:image" id="meta-og-image" content="https://hrcdn.net/og/default.jpg"><meta property="og:site_name" id="meta-og-site" content="HackerRank"><meta property="og:type" id="meta-og-type" content="website"><meta property="article:author" content="https://www.facebook.com/hackerrank"><meta name="twitter:card" id="meta-twitter-card" content="summary"><meta name="twitter:site" id="meta-twitter-site" content="@hackerrank"><meta property="fb:app_id" id="meta-fb-id" content="347499128655783"><meta content="authenticity_token" name="csrf-param" id="csrf-param"><meta content="NnHFID7NGKO+0mjwk4Zy1Yu7DIlXKviybOkp8sMYrPBWew01y+EytlT3+X9TWJM/nOeSGN8SZs/SnFuMD0nEJQ==" name="csrf-token" id="csrf-token">
+  <script type="text/javascript" async="" src="./The Minion Game _ HackerRank_files/mixpanel-2-latest.min.js.download"></script><script type="text/javascript" async="" src="./The Minion Game _ HackerRank_files/ga.js.download"></script><script async="" src="./The Minion Game _ HackerRank_files/gtm.js.download"></script><script>/*!
+ * JavaScript Cookie v2.1.3
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
+;(function (factory) {
+	var registeredInModuleLoader = false;
+	if (typeof define === 'function' && define.amd) {
+		define(factory);
+		registeredInModuleLoader = true;
+	}
+	if (typeof exports === 'object') {
+		module.exports = factory();
+		registeredInModuleLoader = true;
+	}
+	if (!registeredInModuleLoader) {
+		var OldCookies = window.Cookies;
+		var api = window.Cookies = factory();
+		api.noConflict = function () {
+			window.Cookies = OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
+
+	function init (converter) {
+		function api (key, value, attributes) {
+			var result;
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			// Write
+
+			if (arguments.length > 1) {
+				attributes = extend({
+					path: '/'
+				}, api.defaults, attributes);
+
+				if (typeof attributes.expires === 'number') {
+					var expires = new Date();
+					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
+					attributes.expires = expires;
+				}
+
+				try {
+					result = JSON.stringify(value);
+					if (/^[\{\[]/.test(result)) {
+						value = result;
+					}
+				} catch (e) {}
+
+				if (!converter.write) {
+					value = encodeURIComponent(String(value))
+						.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+				} else {
+					value = converter.write(value, key);
+				}
+
+				key = encodeURIComponent(String(key));
+				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
+				key = key.replace(/[\(\)]/g, escape);
+
+				return (document.cookie = [
+					key, '=', value,
+					attributes.expires ? '; expires=' + attributes.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+					attributes.path ? '; path=' + attributes.path : '',
+					attributes.domain ? '; domain=' + attributes.domain : '',
+					attributes.secure ? '; secure' : ''
+				].join(''));
+			}
+
+			// Read
+
+			if (!key) {
+				result = {};
+			}
+
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all. Also prevents odd result when
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var rdecode = /(%[0-9A-Z]{2})+/g;
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
+
+				if (cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = parts[0].replace(rdecode, decodeURIComponent);
+					cookie = converter.read ?
+						converter.read(cookie, name) : converter(cookie, name) ||
+						cookie.replace(rdecode, decodeURIComponent);
+
+					if (this.json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					if (key === name) {
+						result = cookie;
+						break;
+					}
+
+					if (!key) {
+						result[name] = cookie;
+					}
+				} catch (e) {}
+			}
+
+			return result;
+		}
+
+		api.set = api;
+		api.get = function (key) {
+			return api.call(api, key);
+		};
+		api.getJSON = function () {
+			return api.apply({
+				json: true
+			}, [].slice.call(arguments));
+		};
+		api.defaults = {};
+
+		api.remove = function (key, attributes) {
+			api(key, '', extend(attributes, {
+				expires: -1
+			}));
+		};
+
+		api.withConverter = init;
+
+		return api;
+	}
+
+	return init(function () {});
+}));
+</script>
+  <script>
+    window.BACKEND_ENDPOINT = 'https://www.hackerrank.com/';
+    window.MANIFEST_VERSION = '4798225f1e';
+  </script>
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="https://hrcdn.net/fcore/assets/favicon-62bdd46faf.png">
+
+  <!-- Prefetch dns on production -->
+  
+    <link rel="dns-prefetch" href="https://hrcdn.net/">
+    <link rel="dns-prefetch" href="https://d3keuzeb2crhkn.cloudfront.net/">
+    <link rel="dns-prefetch" href="https://notifications.hackerrank.com/">
+    <link rel="dns-prefetch" href="https://api.mixpanel.com/">
+    <link rel="dns-prefetch" href="https://metrics.hackerrank.com/">
+    <link rel="preconnect" href="https://sentry.io/">
+    <link rel="dns-prefetch" href="https://sentry.io/">
+  
+
+  
+
+
+  
+    <link href="./The Minion Game _ HackerRank_files/hackerrank_r_old_trimmed-f2753f5dc3a895f5a3f4.css" media="all" rel="stylesheet"><link rel="stylesheet" href="./The Minion Game _ HackerRank_files/hackerrank_r_old_trimmed-f2753f5dc3a895f5a3f4.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/hackerrank_r_app-22753ab00c0a48bfa67b.css">
+  
+    <link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_sourcing_applications_hackerrank_r_sourcing_company_jobs-2a98c1d15d3198f3c7f2.css">
+  
+    <link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_work-34052d5901b1e4865b7d.css">
+  
+    <link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/hackerrank_r_community-48c4275d657664187281.css">
+  
+    <link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/hackerrank_r_dashboard-ac6212fbd39e6a1ea310.css">
+  
+
+  <!-- Prefetch / preload assets on production -->
+  
+
+    <!-- preload scripts required on the same page -->
+    <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/hackerrank_r_vendor-4dd797fb49.js.download">
+    <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/hackerrank_r_app-22753ab00c0a48bfa67b.js.download">
+    <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/runtime-d355cce3b4bfc36d64e2.js.download">
+
+    
+      <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_sourcing_applications_hackerrank_r_sourcing_company_jobs_9ddfcdb2-784b7dfc9a794befbf37.js.download">
+    
+      <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_sourcing_applications_hackerrank_r_sourcing_company_jobs-2a98c1d15d3198f3c7f2.js.download">
+    
+      <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_work_lsp_client-6663c88c2e4d04d77474.js.download">
+    
+      <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_work-34052d5901b1e4865b7d.js.download">
+    
+      <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/hackerrank_r_community-48c4275d657664187281.js.download">
+    
+      <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_dashboard_hackerrank_r_work-07d83a664cb45627b84a.js.download">
+    
+      <link rel="preload" as="script" href="./The Minion Game _ HackerRank_files/hackerrank_r_dashboard-ac6212fbd39e6a1ea310.js.download">
+    
+    <!-- preload scripts end -->
+
+    <!-- Prefetch old css files -->
+    <link rel="prefetch" href="https://hrcdn.net/fcore/assets/backbone_styles/hackerrank-core-c7aaf0e41c.css">
+    <link rel="prefetch" href="https://hrcdn.net/fcore/assets/backbone_styles/hackerrank_libraries-6d1eda62f2.css">
+
+    
+      <link rel="prefetch" href="https://hrcdn.net/fcore/assets/backbone_styles/dashboard-f9cd1b5147.css">
+    
+    <!-- Prefetch old css files end -->
+
+  
+
+  <!-- Load promise polyfill for the non-believers -->
+  <script>
+    window.Promise || document.write('<script src="https://hrcdn.net/fcore/assets/polyfill-d05a380d50.min.js" type="text\/javascript"><\/script>');
+  </script>
+  <!-- Added for GTM -->
+  <!-- GTM setup -->
+
+<script>
+  dataLayer = [];
+</script>
+
+<!-- Google Tag Manager #1 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer', 'GTM-5FXW96J');</script>
+<!-- End Google Tag Manager 1 -->
+
+
+
+<script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_sourcing_applications_hackerrank_r_sourcing_company_jobs_9ddfcdb2-784b7dfc9a794befbf37.js.download"></script><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_sourcing_applications_hackerrank_r_sourcing_company_jobs-2a98c1d15d3198f3c7f2.js.download"></script><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_work_lsp_client-6663c88c2e4d04d77474.js.download"></script><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_community_hackerrank_r_work-34052d5901b1e4865b7d.js.download"></script><script charset="utf-8" src="./The Minion Game _ HackerRank_files/hackerrank_r_community-48c4275d657664187281.js.download"></script><link rel="prefetch" href="./The Minion Game _ HackerRank_files/hackerrank_r_challenge_list-bcdeb80d61718e4e43eb.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_list_hackerrank_r_challenge_list_v2_hackerrank_r_interview_hackerrank_1976138a-a5ca0a1d7331913ab152.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_list_hackerrank_r_challenge_list_v2_hackerrank_r_interview_hackerrank_14aa502a-f9e5bcabc62f8ce06462.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/hackerrank_r_challenge_list_hackerrank_r_challenge_list_v2_hackerrank_r_interview-4ee6ce22d91c0101ff07.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/hackerrank_r_challenge_list_hackerrank_r_challenge_list_v2_hackerrank_r_interview-4ee6ce22d91c0101ff07.css"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/hackerrank_r_challenge_list-bcdeb80d61718e4e43eb.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_challenge_list_v2-c02338e0fc6763ae6bc5.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_challenge_list_v2-c02338e0fc6763ae6bc5.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_forum-7a4d98b7fd7a7995b9e3.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_code_snippets~hackerrank_r_forum-01c9d8538b2955d735ff.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_forum-7a4d98b7fd7a7995b9e3.css"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/hackerrank_r_challenge-2b91638c4aa108df3721.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_custominput_hackerrank_r_challenge_hackerrank_r_code_snippets_hackerrank_r_onboarding-dcb040a3e38d4ac1aea2.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_code_snippets_hackerrank_r_onboarding-8baf0f12a0b36ca3dcb2.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_onboarding-f24e76841f94d2bcbdef.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_work-65ccfebccad70e30d138.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_custominput_hackerrank_r_challenge_hackerrank_r_code_snippets_hackerrank_r_onboarding-dcb040a3e38d4ac1aea2.css"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_code_snippets_hackerrank_r_onboarding-8baf0f12a0b36ca3dcb2.css"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_work-65ccfebccad70e30d138.css"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/hackerrank_r_challenge-2b91638c4aa108df3721.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_leaderboardv2-3f9af4c953e7b63a4bb3.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_leaderboard~hackerrank_r_leaderboardv2-4cf83d6a091c5e838bf4.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_leaderboard~hackerrank_r_leaderboardv2-4cf83d6a091c5e838bf4.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_leaderboardv2-3f9af4c953e7b63a4bb3.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_contest-1e36bc3d1ec05efd1039.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_contest-1e36bc3d1ec05efd1039.css"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/hackerrank_r_dashboard-ac6212fbd39e6a1ea310.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_leaderboard-8769b054863794fa728f.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_leaderboard-905344abb0ccced26ecc.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_leaderboard-905344abb0ccced26ecc.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_leaderboard-8769b054863794fa728f.css"><style>
+html.scroll-hidden,html.scroll-hidden body{
+  overflow: hidden;
+  height:100vh;
+}
+html.scroll-hidden.pad-adjustment body{
+    padding-right : 21px;
+}
+html.scroll-hidden.pad-adjustment .fixed-elm{
+    padding-right : 21px;
+}</style><script charset="utf-8" src="./The Minion Game _ HackerRank_files/hackerrank_r_old_trimmed-f2753f5dc3a895f5a3f4.js.download"></script><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_company_header-b19ad736f7fc534fcd0f.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_company_header-b19ad736f7fc534fcd0f.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_jobs-ea5f9495ef7fe29450e4.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_jobs~hackerrank_r_testinvite~hackerrank_r_testsettings-c346095ce55f4cbba97a.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_jobs-359baac9fb50756c187b.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_jobs-359baac9fb50756c187b.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_jobs-ea5f9495ef7fe29450e4.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_profile_v2-2a77232f8f4824923ffd.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_profile_v2~hackerrank_r_sourcing_company-cb632e982f4c44e96c83.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_profile_v2~hackerrank_r_sourcing_company-fbb7d617f127c0c6921a.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_profile_v2~hackerrank_r_sourcing_company-fbb7d617f127c0c6921a.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_profile_v2~hackerrank_r_sourcing_company-cb632e982f4c44e96c83.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_profile_v2-2a77232f8f4824923ffd.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_calendar-8645cf088f2c01490872.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_calendar-792f7e0ba6c036f755ef.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_calendar-8645cf088f2c01490872.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_code_snippets-57e6293368cd7e6077fe.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_code_snippets~hackerrank_r_onboarding-30a9d43a36df6f11a0ff.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_code_snippets~hackerrank_r_onboarding-30a9d43a36df6f11a0ff.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_code_snippets-57e6293368cd7e6077fe.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_onboarding-3a8042c4127fe78316af.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_onboarding-3a8042c4127fe78316af.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_charts-1babe00fa6acf2cc530b.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_charts-1babe00fa6acf2cc530b.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_scoring-4e03f29cadded4ec4987.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_scoring-4e03f29cadded4ec4987.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_interview-f14c1ba85890bac1d8e9.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_interview-13b9249335e5d3a099a3.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_interview-13b9249335e5d3a099a3.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_interview-f14c1ba85890bac1d8e9.css"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_auth-f540ba0244bba0797ccc.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_auth-f540ba0244bba0797ccc.css"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/hackerrank_r_krackjack-e9c78ce67f6cfdc18b4e.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_krackjack-748a8d7ac9d0ed89d321.js.download"><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_krackjack-748a8d7ac9d0ed89d321.css"><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_dashboard_hackerrank_r_work-07d83a664cb45627b84a.js.download"></script><script charset="utf-8" src="./The Minion Game _ HackerRank_files/hackerrank_r_dashboard-ac6212fbd39e6a1ea310.js.download"></script><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_list_hackerrank_r_challenge_list_v2_hackerrank_r_interview_hackerrank_1976138a-a5ca0a1d7331913ab152.js.download"></script><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_list_hackerrank_r_challenge_list_v2_hackerrank_r_interview_hackerrank_14aa502a-f9e5bcabc62f8ce06462.js.download"></script><link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/hackerrank_r_challenge_list_hackerrank_r_challenge_list_v2_hackerrank_r_interview-4ee6ce22d91c0101ff07.css"><script charset="utf-8" src="./The Minion Game _ HackerRank_files/hackerrank_r_challenge_list_hackerrank_r_challenge_list_v2_hackerrank_r_interview-4ee6ce22d91c0101ff07.js.download"></script><link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/hackerrank_r_challenge_list-bcdeb80d61718e4e43eb.css"><script charset="utf-8" src="./The Minion Game _ HackerRank_files/hackerrank_r_challenge_list-bcdeb80d61718e4e43eb.js.download"></script><link rel="prefetch" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_intersection_observer-32bb24715821e47ef143.js.download"><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_intersection_observer-32bb24715821e47ef143.js.download"></script><link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/vendors_custominput_hackerrank_r_challenge_hackerrank_r_code_snippets_hackerrank_r_onboarding-dcb040a3e38d4ac1aea2.css"><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_custominput_hackerrank_r_challenge_hackerrank_r_code_snippets_hackerrank_r_onboarding-dcb040a3e38d4ac1aea2.js.download"></script><link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_code_snippets_hackerrank_r_onboarding-8baf0f12a0b36ca3dcb2.css"><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_code_snippets_hackerrank_r_onboarding-8baf0f12a0b36ca3dcb2.js.download"></script><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_onboarding-f24e76841f94d2bcbdef.js.download"></script><link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_work-65ccfebccad70e30d138.css"><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_challenge_hackerrank_r_work-65ccfebccad70e30d138.js.download"></script><link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/hackerrank_r_challenge-2b91638c4aa108df3721.css"><script charset="utf-8" src="./The Minion Game _ HackerRank_files/hackerrank_r_challenge-2b91638c4aa108df3721.js.download"></script><link rel="prefetch" href="https://hrcdn.net/fcore/assets/hackerrank_r_codeshell_lib-7108133168e46d51ec77.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_codeshell_lib~hackerrank_r_teams-98382a52dc631cc56457.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/vendors~hackerrank_r_codeshell_lib-2d9879eb7c255b4a7f07.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/codeshell_editor_theme_m-4c407161e5b9f00cfce8.js"><link rel="prefetch" href="https://hrcdn.net/fcore/assets/codeshell_editor_theme_m-4c407161e5b9f00cfce8.css"><link rel="stylesheet" type="text/css" href="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_krackjack-748a8d7ac9d0ed89d321.css"><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_hackerrank_r_krackjack-748a8d7ac9d0ed89d321.js.download"></script><script charset="utf-8" src="./The Minion Game _ HackerRank_files/hackerrank_r_krackjack-e9c78ce67f6cfdc18b4e.js.download"></script><title> The Minion Game | HackerRank </title><meta name="description" id="meta-description" content="Given a string, judge the winner of the minion game."><meta property="og:title" id="meta-og-title" content="The Minion Game | HackerRank"><meta property="og:description" id="meta-og-description" content="Given a string, judge the winner of the minion game."><meta property="og:url" id="meta-og-url" content="https://www.hackerrank.com/challenges/the-minion-game/problem"><meta name="twitter:url" id="meta-twitter-url" content="https://www.hackerrank.com/challenges/the-minion-game/problem"><meta name="twitter:title" id="meta-twitter-title" content="The Minion Game | HackerRank"><style type="text/css" media="screen" class="monaco-colors">.monaco-editor .accessibilityHelpWidget { background-color: #efeff2; }
+.monaco-editor .accessibilityHelpWidget { box-shadow: 0 2px 8px #a8a8a8; }
+.monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input { background-color: #fffffe; }
+.monaco-editor, .monaco-editor .inputarea.ime-input { color: #000000; }
+.monaco-editor .margin { background-color: #fffffe; }
+.monaco-editor .rangeHighlight { background-color: rgba(253, 255, 0, 0.2); }
+.vs-whitespace { color: rgba(51, 51, 51, 0.2) !important; }
+.monaco-editor .bracket-match { background-color: rgba(0, 100, 0, 0.1); }
+.monaco-editor .bracket-match { border: 1px solid #b9b9b9; }
+.monaco-editor .monaco-editor-overlaymessage .anchor { border-top-color: #007acc; }
+.monaco-editor .monaco-editor-overlaymessage .message { border: 1px solid #007acc; }
+.monaco-editor .monaco-editor-overlaymessage .message { background-color: #d6ecf2; }
+.monaco-editor .codelens-decoration { color: #999999; }
+.monaco-editor .codelens-decoration > a:hover { color: #0000ff !important; }
+.monaco-editor .findMatch { background-color: rgba(234, 92, 0, 0.33); }
+.monaco-editor .currentFindMatch { background-color: #a8ac94; }
+.monaco-editor .findScope { background-color: rgba(180, 180, 180, 0.3); }
+.monaco-editor .find-widget { background-color: #efeff2; }
+.monaco-editor .find-widget { box-shadow: 0 2px 8px #a8a8a8; }
+.monaco-editor .find-widget.no-results .matchesCount { color: #a1260d; }
+.monaco-editor .find-widget .monaco-sash { background-color: #c8c8c8; width: 3px !important; margin-left: -4px;}
+.monaco-editor .findOptionsWidget { background-color: #efeff2; }
+.monaco-editor .findOptionsWidget { box-shadow: 0 2px 8px #a8a8a8; }
+.monaco-editor .line-numbers { color: #237893; }
+.monaco-editor .current-line ~ .line-numbers { color: #0b216f; }
+.monaco-editor .view-overlays .current-line { background-color: #eaf2fe; }
+.monaco-editor .margin-view-overlays .current-line-margin { background-color: #eaf2fe; border: none; }
+.monaco-editor .lines-content .cigr { box-shadow: 1px 0 0 0 #d3d3d3 inset; }
+.monaco-editor .lines-content .cigra { box-shadow: 1px 0 0 0 #939393 inset; }
+.monaco-editor .view-ruler { box-shadow: 1px 0 0 0 #d3d3d3 inset; }
+.monaco-editor .scroll-decoration { box-shadow: #dddddd 0 6px 6px -6px inset; }
+.monaco-editor .focused .selected-text { background-color: #add6ff; }
+.monaco-editor .selected-text { background-color: #e5ebf1; }
+.monaco-editor .cursor { background-color: #000000; border-color: #000000; color: #ffffff; }
+.monaco-editor .minimap-slider, .monaco-editor .minimap-slider .minimap-slider-horizontal { background: rgba(100, 100, 100, 0.2); }
+.monaco-editor .minimap-slider:hover, .monaco-editor .minimap-slider:hover .minimap-slider-horizontal { background: rgba(100, 100, 100, 0.35); }
+.monaco-editor .minimap-slider.active, .monaco-editor .minimap-slider.active .minimap-slider-horizontal { background: rgba(0, 0, 0, 0.3); }
+.monaco-editor .minimap-shadow-visible { box-shadow: #dddddd -6px 0 6px -6px inset; }
+.monaco-editor .squiggly-error { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%206%203'%20enable-background%3D'new%200%200%206%203'%20height%3D'3'%20width%3D'6'%3E%3Cg%20fill%3D'%23d60a0a'%3E%3Cpolygon%20points%3D'5.5%2C0%202.5%2C3%201.1%2C3%204.1%2C0'%2F%3E%3Cpolygon%20points%3D'4%2C0%206%2C2%206%2C0.6%205.4%2C0'%2F%3E%3Cpolygon%20points%3D'0%2C2%201%2C3%202.4%2C3%200%2C0.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x bottom left; }
+.monaco-editor .squiggly-warning { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%206%203'%20enable-background%3D'new%200%200%206%203'%20height%3D'3'%20width%3D'6'%3E%3Cg%20fill%3D'%23117711'%3E%3Cpolygon%20points%3D'5.5%2C0%202.5%2C3%201.1%2C3%204.1%2C0'%2F%3E%3Cpolygon%20points%3D'4%2C0%206%2C2%206%2C0.6%205.4%2C0'%2F%3E%3Cpolygon%20points%3D'0%2C2%201%2C3%202.4%2C3%200%2C0.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x bottom left; }
+.monaco-editor .squiggly-info { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%206%203'%20enable-background%3D'new%200%200%206%203'%20height%3D'3'%20width%3D'6'%3E%3Cg%20fill%3D'%23008000'%3E%3Cpolygon%20points%3D'5.5%2C0%202.5%2C3%201.1%2C3%204.1%2C0'%2F%3E%3Cpolygon%20points%3D'4%2C0%206%2C2%206%2C0.6%205.4%2C0'%2F%3E%3Cpolygon%20points%3D'0%2C2%201%2C3%202.4%2C3%200%2C0.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x bottom left; }
+.monaco-editor .squiggly-hint { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%223%22%20width%3D%2212%22%3E%3Cg%20fill%3D%22%236c6c6c%22%3E%3Ccircle%20cx%3D%221%22%20cy%3D%221%22%20r%3D%221%22%2F%3E%3Ccircle%20cx%3D%225%22%20cy%3D%221%22%20r%3D%221%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%221%22%20r%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat bottom left; }
+.showUnused .monaco-editor .squiggly-inline-unnecessary { opacity: 0.467; will-change: opacity; }
+.monaco-editor .reference-zone-widget .ref-tree .referenceMatch { background-color: rgba(234, 92, 0, 0.3); }
+.monaco-editor .reference-zone-widget .preview .reference-decoration { background-color: rgba(245, 216, 2, 0.87); }
+.monaco-editor .reference-zone-widget .ref-tree { background-color: #f3f3f3; }
+.monaco-editor .reference-zone-widget .ref-tree { color: #646465; }
+.monaco-editor .reference-zone-widget .ref-tree .reference-file { color: #1e1e1e; }
+.monaco-editor .reference-zone-widget .ref-tree .monaco-tree.focused .monaco-tree-rows > .monaco-tree-row.selected:not(.highlighted) { background-color: rgba(51, 153, 255, 0.2); }
+.monaco-editor .reference-zone-widget .ref-tree .monaco-tree.focused .monaco-tree-rows > .monaco-tree-row.selected:not(.highlighted) { color: #6c6c6c !important; }
+.monaco-editor .reference-zone-widget .preview .monaco-editor .monaco-editor-background,.monaco-editor .reference-zone-widget .preview .monaco-editor .inputarea.ime-input {	background-color: #f2f8fc;}
+.monaco-editor .reference-zone-widget .preview .monaco-editor .margin {	background-color: #f2f8fc;}
+.monaco-editor .goto-definition-link { color: #0000ff !important; }
+.monaco-editor .hoverHighlight { background-color: rgba(173, 214, 255, 0.15); }
+.monaco-editor .monaco-editor-hover { background-color: #efeff2; }
+.monaco-editor .monaco-editor-hover { border: 1px solid #c8c8c8; }
+.monaco-editor .monaco-editor-hover .hover-row:not(:first-child):not(:empty) { border-top: 1px solid rgba(200, 200, 200, 0.5); }
+.monaco-editor .monaco-editor-hover a { color: #006ab1; }
+.monaco-editor .monaco-editor-hover code { background-color: rgba(220, 220, 220, 0.4); }
+.monaco-editor.vs .valueSetReplacement { outline: solid 2px #b9b9b9; }
+.monaco-editor .tokens-inspect-widget { border: 1px solid #c8c8c8; }
+.monaco-editor .tokens-inspect-widget .tokens-inspect-separator { background-color: #c8c8c8; }
+.monaco-editor .tokens-inspect-widget { background-color: #efeff2; }
+.monaco-editor .detected-link-active { color: #0000ff !important; }
+.monaco-editor .parameter-hints-widget { border: 1px solid #c8c8c8; }
+.monaco-editor .parameter-hints-widget.multiple .body { border-left: 1px solid rgba(200, 200, 200, 0.5); }
+.monaco-editor .parameter-hints-widget .signature.has-docs { border-bottom: 1px solid rgba(200, 200, 200, 0.5); }
+.monaco-editor .parameter-hints-widget { background-color: #efeff2; }
+.monaco-editor .parameter-hints-widget a { color: #006ab1; }
+.monaco-editor .parameter-hints-widget code { background-color: rgba(220, 220, 220, 0.4); }
+.monaco-editor .suggest-widget .monaco-list .monaco-list-row .monaco-highlighted-label .highlight { color: #007acc; }
+.monaco-editor .suggest-widget { color: #000000; }
+.monaco-editor .suggest-widget a { color: #006ab1; }
+.monaco-editor .suggest-widget code { background-color: rgba(220, 220, 220, 0.4); }
+.monaco-editor .focused .selectionHighlight { background-color: rgba(173, 214, 255, 0.3); }
+.monaco-editor .selectionHighlight { background-color: rgba(173, 214, 255, 0.15); }
+.monaco-editor .wordHighlight { background-color: rgba(87, 87, 87, 0.25); }
+.monaco-editor .wordHighlightStrong { background-color: rgba(14, 99, 156, 0.25); }
+.monaco-diff-editor .diff-review-line-number { color: #237893; }
+.monaco-diff-editor .diff-review-shadow { box-shadow: #dddddd 0 -6px 6px -6px inset; }
+.monaco-editor .line-insert, .monaco-editor .char-insert { background-color: rgba(155, 185, 85, 0.2); }
+.monaco-diff-editor .line-insert, .monaco-diff-editor .char-insert { background-color: rgba(155, 185, 85, 0.2); }
+.monaco-editor .inline-added-margin-view-zone { background-color: rgba(155, 185, 85, 0.2); }
+.monaco-editor .line-delete, .monaco-editor .char-delete { background-color: rgba(255, 0, 0, 0.2); }
+.monaco-diff-editor .line-delete, .monaco-diff-editor .char-delete { background-color: rgba(255, 0, 0, 0.2); }
+.monaco-editor .inline-deleted-margin-view-zone { background-color: rgba(255, 0, 0, 0.2); }
+.monaco-diff-editor.side-by-side .editor.modified { box-shadow: -6px 0 5px -5px #dddddd; }
+
+.mtk1 { color: #000000; }
+.mtk2 { color: #fffffe; }
+.mtk3 { color: #808080; }
+.mtk4 { color: #ff0000; }
+.mtk5 { color: #0451a5; }
+.mtk6 { color: #0000ff; }
+.mtk7 { color: #09885a; }
+.mtk8 { color: #008000; }
+.mtk9 { color: #dd0000; }
+.mtk10 { color: #383838; }
+.mtk11 { color: #cd3131; }
+.mtk12 { color: #863b00; }
+.mtk13 { color: #af00db; }
+.mtk14 { color: #800000; }
+.mtk15 { color: #e00000; }
+.mtk16 { color: #3030c0; }
+.mtk17 { color: #666666; }
+.mtk18 { color: #778899; }
+.mtk19 { color: #ff00ff; }
+.mtk20 { color: #608b4e; }
+.mtk21 { color: #a31515; }
+.mtk22 { color: #4f76ac; }
+.mtk23 { color: #008080; }
+.mtk24 { color: #001188; }
+.mtk25 { color: #4864aa; }
+.mtki { font-style: italic; }
+.mtkb { font-weight: bold; }
+.mtku { text-decoration: underline; text-underline-position: under; }</style><script charset="utf-8" src="./The Minion Game _ HackerRank_files/137-14d322b72797ad99febd.js.download"></script><style type="text/css" media="screen"></style><script charset="utf-8" src="./The Minion Game _ HackerRank_files/vendors_lsp_client-a52b3e899657193c2e3a.js.download"></script></head>
+<body id="hr_v2" class="hr-community">
+  <div id="fb-root"></div>
+  
+
+  <!-- Just a placeholder div to start loading open sans and source code loader -->
+  <div class="font-open-sans-loader"></div>
+  <div class="font-source-code-loader"></div>
+  <!-- Just a placeholder div to start loading open sans and source code loader end -->
+
+  <div id="content" onclick="void(0);"><div class="ui-kit-root"><div class="body-wrap  community-page challenges-page problem-page show-cookie-banner"><div class="toast-message loading"><span class="toast-container containment"><i class="ui-icon-loading"></i><span class="toast-text">Loading...</span></span></div><div class="theme-m new-design logged-user"><div class="page-header-wrapper theme-m-section"><nav class="community-header"><div class="container"><div class="header-nav-links theme-m-section"><ul class="nav-links"><li class="nav-link-item logo-wrap"><a class="nav_link backbone logo_mark js_logo_mark logo-link" data-analytics="NavBarLogo" data-attr1="/dashboard" href="https://www.hackerrank.com/dashboard"><img id="feed-intro" class="logo-img-small" src="./The Minion Game _ HackerRank_files/h_mark_sm-966d2b45e3.svg" alt=""></a></li><li class="nav-link-item"><a class="nav-link dashboard active" data-analytics="NavBarDomains" href="https://www.hackerrank.com/dashboard"><span>Practice</span></a></li><li class="nav-link-item"><a class="nav-link contests" data-analytics="NavBarContests" href="https://www.hackerrank.com/contests"><span>Compete</span></a></li><li class="nav-link-item"><a class="nav-link" data-analytics="NavBarJobs" href="https://www.hackerrank.com/jobs"><span>Jobs</span><i class="ui-icon-circle-filled notification-indicator hidden"></i></a></li><li class="nav-link-item"><a class="nav-link" data-analytics="NavBarLeaderboard" id="leaderboard-nav-link" href="https://www.hackerrank.com/leaderboard"><span>Leaderboard</span></a></li></ul></div><div class="nav-buttons theme-m-section"><ul class="pull-left psR"><li class="hide-in-private-contest search-input-container input-icon main-hr-search" id="search-span"><div class="search-form new-search"><div><div class="search-query asyn-autocomplete autocomplete"><div class="ac-input-wrap cf"><input autocomplete="off" class="ac-input " value="" placeholder="Search"></div></div><i class="ui-icon-search"></i></div></div></li></ul><ul class="pull-left nav-wrap mmL"><li class="hide-in-private-contest button-item"><div class="dropdown dropdown message-dropdown notify-dropdown theme-m-content"><a class="cursor dropdown-handle nav_link hr_nav_messages_link js-dropdown-toggle js-link" data-analytics="NavBarMessageIcon"><i class="dropdown-icon ui-icon-message"></i></a><div class="dropdown-menu large"><header class="psT psB text-center menu-header"><strong class="header-title">Messages</strong></header><div id="notify_messages" class="dropdown-body"><div class="hr_nav_messages_list"><div class="no-propagation text-center txt-navy empty-msg">You have no unread messages.</div></div></div><footer class="final text-center show-all"><a class="btn show-all-link" href="https://www.hackerrank.com/inbox" data-analytics="NavBarMessageShowAll">Show All</a></footer></div></div></li><li class="button-item"><div class="dropdown dropdown notification-dropdown notify-dropdown theme-m-content"><a class="cursor dropdown-handle nav_link hr_nav_notifications_link js-dropdown-toggle js-link" data-toggle="dropdown" data-analytics="NavBarNotificationsIcon"><i class="dropdown-icon ui-icon-notification"></i></a><div class="dropdown-menu large" id="notify_broadcasts"><header class="psA menu-header"><strong class="header-title">Notifications</strong><a class="hr_archive_all archive pull-right js-link" data-analytics="NavBarNotificationsArchiveAll"><i class="icon-folder-open"></i>Archive All</a></header><div class="clearfix dropdown-body"><div class="hr_nav_notifications_list"><ul><li class="notify_item dropdown-item cursor" data-id="72795825" data-category="contest-announcements" data-url="/domains/tutorials/30-days-of-code"><div class="notification-icon"><img src="./The Minion Game _ HackerRank_files/notifymarker-4be6d5a4c8.png"></div><div class="notification-subject pmT"><div class="psA"><div>Improve your coding skills. Join our 30 Days of Code challenge!</div><small class="meta"><time class="time-text" datetime="2019-02-23T16:29:36.000Z" title="2019-02-23 16:29">6 days ago</time></small></div></div></li></ul></div></div><footer class="final show-all"><a class="btn show-all-link" href="https://www.hackerrank.com/notifications" data-analytics="NavBarNotificationsShowAll">Show All</a></footer></div></div></li><li class="button-item"><div class="dropdown dropdown dropdown-auth profile-menu cursor theme-m-content"><a class="backbone nav_link js-dropdown-toggle js-link toggle-wrap" data-analytics="NavBarProfileDropDown"><i class="ui-icon-user default-user-icon"></i><span class="mmR username text-ellipsis">asifanwar59</span><i class="ui-icon-chevron-down down-icon"></i></a><div class="dropdown-menu drop-list pull-right"><ul><li class="hide-in-private-contest profile-nav-item"><a class="navigation_hackos hackos-count" data-analytics="NavBarProfileDropDownHackos" href="https://www.hackerrank.com/asifanwar59/hackos">Hackos: <span class="navigation_hackos-count">153</span></a></li><li class="hide-in-private-contest profile-nav-item"><a rel="tooltip" data-placement="left" data-analytics="NavBarProfileDropDownProfile" href="https://www.hackerrank.com/asifanwar59">Profile<div class="ui-progress-bar progress-bar theme-default"><div class="progress-filler" style="width:30%"></div></div></a></li><li class="hide-in-private-contest profile-nav-item"><a href="https://www.hackerrank.com/settings" data-analytics="NavBarProfileDropDownSettings">Settings</a></li><li class="hide-in-private-contest profile-nav-item"><a href="https://www.hackerrank.com/challenges/bookmarks" data-analytics="NavBarDropDownBookmarks">Bookmarks</a></li><li class="hide-in-private-contest profile-nav-item"><a href="https://www.hackerrank.com/network" data-analytics="NavBarProfileDropDownNetwork">Network</a></li><li class="hide-in-private-contest profile-nav-item"><a href="https://www.hackerrank.com/submissions" data-analytics="NavBarProfileDropDownSubmissions">Submissions</a></li><li class="hide-in-private-contest profile-nav-item"><a href="https://www.hackerrank.com/administration" data-analytics="NavBarProfileDropDownAdministration">Administration</a></li><li class="profile-nav-item"><a class="logout-button js-link" data-analytics="NavBarProfileDropDownLogout">Logout</a></li></ul></div></div></li></ul></div></div></nav></div><header class="community-header-breadcrumb"><div class="container"><div class="d-flex justify-content-between align-items-center content-header-wrapper"><div class="community-header-breadcrumb-items"><ol itemtype="http://schema.org/BreadcrumbList" class="community-breadcrumb text-content"><li itemprop="itemListElement" itemtype="http://schema.org/ListItem" class="breadcrumb-item"><a itemprop="item" class="breadcrumb-link" data-analytics="Breadcrumb" data-attr1="Practice" data-attr2="global" data-attr7="1" href="https://www.hackerrank.com/dashboard"><span itemprop="name" class="breadcrumb-item-text">Practice</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemtype="http://schema.org/ListItem" class="breadcrumb-item"><span class="ui-icon-chevron-right mmL mmR chevron-icon"></span><a itemprop="item" class="breadcrumb-link" data-analytics="Breadcrumb" data-attr1="Python" data-attr2="global" data-attr7="1" href="https://www.hackerrank.com/domains/python"><span itemprop="name" class="breadcrumb-item-text">Python</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemtype="http://schema.org/ListItem" class="breadcrumb-item"><span class="ui-icon-chevron-right mmL mmR chevron-icon"></span><a itemprop="item" class="breadcrumb-link" data-analytics="Breadcrumb" data-attr1="Strings" data-attr2="global" data-attr7="1" href="https://www.hackerrank.com/domains/python/py-strings"><span itemprop="name" class="breadcrumb-item-text">Strings</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemtype="http://schema.org/ListItem" class="breadcrumb-item"><span class="ui-icon-chevron-right mmL mmR chevron-icon"></span><span itemprop="name" class="breadcrumb-item-text">The Minion Game</span><meta itemprop="position" content="1"></li></ol><div class="page-label-wrapper text-headline"><h1 class="page-label"><div class="challenge-page-label-wrapper align-items-center"><h1 class="ui-icon-label page-label">The Minion Game</h1><button class="ui-btn ui-btn-normal ui-btn-plain star-button" tabindex="0" aria-label="Add bookmark"><div class="ui-content align-icon-right"><span class="ui-text"><i class="icon-bookmark star-icon ui-icon-star"></i></span></div></button></div></h1></div></div><div class="community-header-aside"><div class="challange-header-aside"><div class="track-badge-progress"><div class="badge-progress"><div class="remaining"><div class="point-left-wrap"><span class="point-left">35 more points</span> to get your next star!</div><div class="track-progress-bar"><div class="ui-progress-bar progress-bar theme-default"><div class="progress-filler" style="width: 13%;"></div></div></div><div class="score-info"><span class="current-rank">Rank: <span class="value">185164</span></span><span class="pipe">|</span><span class="current-points">Points: <span class="value">75/110</span></span><a class="scoring-link" data-analytics="BadgeLearnMoreLink" data-attr1="python" target="_blank" href="https://www.hackerrank.com/scoring"><i class="scoring-icon ui-icon-warning-hexagon"></i></a></div></div><div location="[object Object]" params="[object Object]" router="[object Object]" class="ui-badge level-bronze"><div class="ui-badge-wrap"><svg viewBox="0 0 91.66667 100" class="hexagon"><g><defs><lineargradient id="badge-bronze-gradient" x1="52.5" y1="2.5" x2="52.5" y2="102.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffc5ab"></stop><stop offset="1" stop-color="#ffa38a"></stop></lineargradient></defs><path fill="url(#badge-bronze-gradient)" d="M98.28277,47.36h0c-.18459-9.382-.87983-17.797-2.0917-19.8595-1.02214-1.742-6.1721-5.43476-12.6195-9.45853L66.3804,8.23311C59.94162,4.89541,54.4699,2.5,52.49778,2.5c-2.42987,0-10.17687,3.63131-18.49789,8.18049-6.30411,3.44623-12.9328,7.41557-17.83631,10.74623-3.85037,2.61278-6.63864,4.828-7.35893,6.07393-.73574,1.27216-1.28014,4.91124-1.63613,9.67794l-.00014-.00008c-.45195,6.03951-.599,13.88935-.43933,21.10033.20233,9.11082.89243,17.18541,2.07561,19.22049C11.66541,82.42328,46.78277,102.5,52.49778,102.5c2.374,0,9.82245-3.47115,17.92388-7.87722,6.4-3.48081,13.19866-7.5418,18.23618-10.9459l-.00046-.00026c3.93694-2.6605,6.80064-4.91944,7.53385-6.17728.72907-1.2482,1.27024-4.80557,1.62881-9.48065l-.00014-.00008C98.269,62.13222,98.42408,54.47227,98.28277,47.36Z" transform="translate(-6.66667 -2.5)"></path></g><image class="badge-icon" xlink:href="https://hrcdn.net/fcore/assets/badges/python-f70befd824.svg" x="50%" y="22" height="27" width="27" transform="translate(-13.5, 0)"></image><text class="badge-title" x="50%" y="65.5" font-size="10">Python</text><g class="star-section" transform="translate(-8, 0)"><svg x="50%" y="71" height="10"><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="0"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="9"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg></svg></g></svg></div></div></div></div></div></div></div></div></header><div class="container"></div><div class="community-content"><div class="challenge-view theme-m"><div class="challenge-page-header container"><div class="ui-tabs-wrap"><div class="render-list clearfix"><ul class="tab-header"><li id="Problem" class="tab-item active"><a class="tab-item-color" data-analytics="ChallengeViewTab" data-attr1="/challenges/the-minion-game/problem" data-attr2="Problem" href="https://www.hackerrank.com/challenges/the-minion-game/problem"><span class="ui-icon-label">Problem</span></a></li><li id="Submissions" class="tab-item"><a class="tab-item-color" data-analytics="ChallengeViewTab" data-attr1="/challenges/the-minion-game/submissions" data-attr2="Submissions" href="https://www.hackerrank.com/challenges/the-minion-game/submissions"><span class="ui-icon-label">Submissions</span></a></li><li id="Leaderboard" class="tab-item"><a class="tab-item-color" data-analytics="ChallengeViewTab" data-attr1="/challenges/the-minion-game/leaderboard" data-attr2="Leaderboard" href="https://www.hackerrank.com/challenges/the-minion-game/leaderboard"><span class="ui-icon-label">Leaderboard</span></a></li><li id="Discussions" class="tab-item"><a class="tab-item-color" data-analytics="ChallengeViewTab" data-attr1="/challenges/the-minion-game/forum" data-attr2="Discussions" href="https://www.hackerrank.com/challenges/the-minion-game/forum"><span class="ui-icon-label">Discussions</span></a></li><li id="Editorial" class="tab-item"><a class="tab-item-color" data-analytics="ChallengeViewTab" data-attr1="/challenges/the-minion-game/editorial" data-attr2="Editorial" href="https://www.hackerrank.com/challenges/the-minion-game/editorial"><span class="ui-icon-label">Editorial</span><i class="ui-icon-lock"></i></a></li></ul></div></div></div><section class="challenge-interface challenge-problem"><div class="challenge-body"><div class="challenge-body-elements-problem challenge-container-element"><div class="container challenge-page-wrap panes-container theme-m-content"><div class="full-screen-split split-wrap left-pane"><section class="problem-statement split"><div class="ui-tabs-wrap"><div class="tab-list-content"><div class="theme-m hr_tour-problem-statement problem-statement have-external-links"><div class="content-text challenge-text mlB hackdown-container theme-m"><div class="challenge-body-html"><div class="challenge_problem_statement"><div class="msB challenge_problem_statement_body"><div class="hackdown-content"><style id="MathJax_SVG_styles">.MathJax_SVG_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax_SVG .MJX-monospace {font-family: monospace}
+.MathJax_SVG .MJX-sans-serif {font-family: sans-serif}
+.MathJax_SVG {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax_SVG * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.mjx-svg-href {fill: blue; stroke: blue}
+</style><svg style="display: none;"><defs id="MathJax_SVG_glyphs"></defs></svg><p>Kevin and Stuart want to play the '<strong>The Minion Game</strong>'.<br></p>
+
+<p><strong>Game Rules</strong><br></p>
+
+<p>Both players are given the same string, <span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-1-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.499ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 645.5 936.9" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g></svg></span>.<br>
+Both players have to make substrings using the letters of the string <span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-2-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.499ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 645.5 936.9" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g></svg></span>.<br>
+Stuart has to make words starting with <em>consonants</em>.<br>
+Kevin has to make words starting with <em>vowels</em>. <br>
+The game ends when both players have made all possible substrings.
+<br></p>
+
+<p><strong>Scoring</strong><br>
+A player gets <code>+1</code> point for each occurrence of the substring in the string <span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-3-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.499ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 645.5 936.9" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g></svg></span>.<br></p>
+
+<p><strong>For Example</strong>:<br>
+String <span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-4-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.499ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 645.5 936.9" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g></svg></span> = <em>BANANA</em><br>
+Kevin's vowel beginning word = <em>ANA</em><br>
+Here, <em>ANA</em> occurs twice in <em>BANANA</em>. Hence, Kevin will get <code>2</code> Points.
+<br><br>
+For better understanding, see the image below: <br></p>
+
+<p><img src="./The Minion Game _ HackerRank_files/1450330231-04db904008-banana.png" title="banana.png"></p>
+
+<p>Your task is to determine the winner of the game and their score.</p></div></div></div><div class="challenge_input_format"><div class="msB challenge_input_format_title"><p><strong>Input Format</strong></p></div><div class="msB challenge_input_format_body"><div class="hackdown-content"><style id="MathJax_SVG_styles">.MathJax_SVG_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax_SVG .MJX-monospace {font-family: monospace}
+.MathJax_SVG .MJX-sans-serif {font-family: sans-serif}
+.MathJax_SVG {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax_SVG * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.mjx-svg-href {fill: blue; stroke: blue}
+</style><svg style="display: none;"><defs id="MathJax_SVG_glyphs"></defs></svg><p>A single line of input containing the string <span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-1-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.499ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 645.5 936.9" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g></svg></span>. <br>
+<strong>Note</strong>: The string <span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-2-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.499ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 645.5 936.9" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g></svg></span> will contain only uppercase letters: <span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-3-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.558ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 3253.9 1223.9" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><g transform="translate(278,0)"><path stroke-width="1" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g transform="translate(1251,0)"><path stroke-width="1" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g transform="translate(2251,0)"><path stroke-width="1" d="M58 8Q58 23 64 35Q64 36 329 334T596 635L586 637Q575 637 512 637H500H476Q442 637 420 635T365 624T311 598T266 548T228 469Q227 466 226 463T224 458T223 453T222 450L221 448Q218 443 202 443Q185 443 182 453L214 561Q228 606 241 651Q249 679 253 681Q256 683 487 683H718Q723 678 723 675Q723 673 717 649Q189 54 188 52L185 49H274Q369 50 377 51Q452 60 500 100T579 247Q587 272 590 277T603 282H607Q628 282 628 271Q547 5 541 2Q538 0 300 0H124Q58 0 58 8Z"></path></g><g transform="translate(2975,0)"><path stroke-width="1" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></g></g></svg></span>.  </p>
+
+<p><strong>Constraints</strong></p>
+
+<p><span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-4-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="17.219ex" height="3.176ex" style="vertical-align: -0.838ex;" viewBox="0 -1006.6 7413.5 1367.4" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><g transform="translate(778,0)"><path stroke-width="1" d="M694 -11T694 -19T688 -33T678 -40Q671 -40 524 29T234 166L90 235Q83 240 83 250Q83 261 91 266Q664 540 678 540Q681 540 687 534T694 519T687 505Q686 504 417 376L151 250L417 124Q686 -4 687 -5Q694 -11 694 -19Z"></path></g><g transform="translate(1834,0)"><path stroke-width="1" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g><g transform="translate(2133,0)"><path stroke-width="1" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g transform="translate(2599,0)"><path stroke-width="1" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g transform="translate(3200,0)"><path stroke-width="1" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g transform="translate(3589,0)"><path stroke-width="1" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g><g transform="translate(4235,0)"><path stroke-width="1" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g transform="translate(4902,0)"><path stroke-width="1" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g transform="translate(5958,0)"><path stroke-width="1" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><g transform="translate(1001,393)"><path stroke-width="1" transform="scale(0.707)" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path></g></g></g></svg></span><br></p></div></div></div><div class="challenge_output_format"><div class="msB challenge_output_format_title"><p><strong>Output Format</strong></p></div><div class="msB challenge_output_format_body"><div class="hackdown-content"><style id="MathJax_SVG_styles">.MathJax_SVG_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax_SVG .MJX-monospace {font-family: monospace}
+.MathJax_SVG .MJX-sans-serif {font-family: sans-serif}
+.MathJax_SVG {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax_SVG * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.mjx-svg-href {fill: blue; stroke: blue}
+</style><svg style="display: none;"><defs id="MathJax_SVG_glyphs"></defs></svg><p>Print one line: the name of the winner and their score separated by a space. </p>
+
+<p>If the game is a draw, print <em>Draw</em>.</p></div></div></div><div class="challenge_sample_input"><div class="msB challenge_sample_input_title"><p><strong>Sample Input</strong></p></div><div class="msB challenge_sample_input_body"><div class="hackdown-content"><style id="MathJax_SVG_styles">.MathJax_SVG_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax_SVG .MJX-monospace {font-family: monospace}
+.MathJax_SVG .MJX-sans-serif {font-family: sans-serif}
+.MathJax_SVG {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax_SVG * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.mjx-svg-href {fill: blue; stroke: blue}
+</style><svg style="display: none;"><defs id="MathJax_SVG_glyphs"></defs></svg><pre><code>BANANA
+</code></pre></div></div></div><div class="challenge_sample_output"><div class="msB challenge_sample_output_title"><p><strong>Sample Output</strong></p></div><div class="msB challenge_sample_output_body"><div class="hackdown-content"><style id="MathJax_SVG_styles">.MathJax_SVG_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax_SVG .MJX-monospace {font-family: monospace}
+.MathJax_SVG .MJX-sans-serif {font-family: sans-serif}
+.MathJax_SVG {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax_SVG * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.mjx-svg-href {fill: blue; stroke: blue}
+</style><svg style="display: none;"><defs id="MathJax_SVG_glyphs"></defs></svg><pre><code>Stuart 12
+</code></pre>
+
+<p><sub><strong>Note : <br>
+Vowels are only defined as <span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-1-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.246ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 3550.5 936.9" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><g transform="translate(750,0)"><path stroke-width="1" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g><g transform="translate(1515,0)"><path stroke-width="1" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path></g><g transform="translate(2019,0)"><path stroke-width="1" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g transform="translate(2783,0)"><path stroke-width="1" d="M107 637Q73 637 71 641Q70 643 70 649Q70 673 81 682Q83 683 98 683Q139 681 234 681Q268 681 297 681T342 682T362 682Q378 682 378 672Q378 670 376 658Q371 641 366 638H364Q362 638 359 638T352 638T343 637T334 637Q295 636 284 634T266 623Q265 621 238 518T184 302T154 169Q152 155 152 140Q152 86 183 55T269 24Q336 24 403 69T501 205L552 406Q599 598 599 606Q599 633 535 637Q511 637 511 648Q511 650 513 660Q517 676 519 679T529 683Q532 683 561 682T645 680Q696 680 723 681T752 682Q767 682 767 672Q767 650 759 642Q756 637 737 637Q666 633 648 597Q646 592 598 404Q557 235 548 205Q515 105 433 42T263 -22Q171 -22 116 34T60 167V183Q60 201 115 421Q164 622 164 628Q164 635 107 637Z"></path></g></g></svg></span>. In this problem, <span style="font-size: 100%; display: inline-block;" class="MathJax_SVG" id="MathJax-Element-2-Frame"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.773ex" height="2.009ex" style="vertical-align: -0.171ex;" viewBox="0 -791.3 763.5 865.1" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="1" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path></g></svg></span> is not considered a vowel.</strong></sub>    </p></div></div></div></div></div></div></div></div></section><section class="code-editor-section split"><div><div></div><div class="hr-monaco-editor-wrapper"><div class="hr-monaco-editor-with-input"><div><div class="hr-monaco-editor-with-statusbar"><div class="hr-monaco-editor"><div class="editor-toolbar"><div class="toolbar-left"></div><div class="toolbar-right"><div class="Select  select-language has-value is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-2--value"><div class="Select-value"><span class="Select-value-label" role="option" aria-selected="true" id="react-select-2--value-item">Python 3</span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-2--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" value="" style="box-sizing: content-box; width: 5px;"><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: SourceCodePro, monaco, Courier, monospace; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span class="Select-arrow"></span></span></div></div><div class="toolbar-custom-items"><div class="hr-monaco-reset-code"><button class="ui-btn ui-btn-normal cursor reset-btn" tabindex="0" title="Reset Code" type="button"><div class="ui-content align-icon-right"><span class="ui-text"><i class="ui-icon-reset-code icon-grey reset-icon"></i></span></div></button></div><div class="fullscreen-icon"><a class="fullscreen no-select active-link hr-monaco-base-btn" title="Switch to vertical layout" data-original-title="Switch to vertical layout"><i class="ui-icon-maximize icon-grey no-select"></i></a></div></div><div class="hr-monaco-settings-editor"><button class="ui-btn ui-btn-link cursor settings-toggle" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-label="Editor Settings" title="Editor Settings"><i class="icon-cog ui-icon-settings icon-grey"></i></button></div></div></div><div class="hr-monaco-editor-parent"><div class="hr-monaco-base-editor showUnused" style="height: 580px;" data-keybinding-context="1" data-mode-id="python"><div class="monaco-editor vs" data-uri="file:///lsp-2b70c410-3c0e-11e9-835c-ed1c84e30bab/Solution.py" style="width: 890px; height: 580px;"><div data-mprt="3" class="overflow-guard" style="width: 890px; height: 580px;"><div class="margin" role="presentation" aria-hidden="true" style="position: absolute; will-change: transform; top: -1293px; height: 1934px; width: 67px;"><div class="glyph-margin" style="left: 0px; width: 0px; height: 1934px;"></div><div class="margin-view-zones" role="presentation" aria-hidden="true" style="position: absolute; width: 67px;"></div><div class="margin-view-overlays" role="presentation" aria-hidden="true" style="position: absolute; width: 67px; font-family: monospace; font-weight: normal; font-size: 15px; line-height: 20px; letter-spacing: 0px; height: 1934px;"><div style="position:absolute;top:1274px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">63</div></div><div style="position:absolute;top:1294px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">64</div></div><div style="position:absolute;top:1314px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">65</div></div><div style="position:absolute;top:1334px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">66</div></div><div style="position:absolute;top:1354px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">67</div></div><div style="position:absolute;top:1374px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">68</div></div><div style="position:absolute;top:1394px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">69</div></div><div style="position:absolute;top:1414px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">70</div></div><div style="position:absolute;top:1434px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">71</div></div><div style="position:absolute;top:1454px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">72</div></div><div style="position:absolute;top:1474px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">73</div></div><div style="position:absolute;top:1494px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">74</div></div><div style="position:absolute;top:1514px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">75</div></div><div style="position:absolute;top:1534px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">76</div></div><div style="position:absolute;top:1554px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">77</div></div><div style="position:absolute;top:1574px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">78</div></div><div style="position:absolute;top:1594px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">79</div></div><div style="position:absolute;top:1614px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">80</div></div><div style="position:absolute;top:1634px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">81</div></div><div style="position:absolute;top:1654px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">82</div></div><div style="position:absolute;top:1674px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">83</div></div><div style="position:absolute;top:1694px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">84</div></div><div style="position:absolute;top:1714px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">85</div></div><div style="position:absolute;top:1734px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">86</div></div><div style="position:absolute;top:1754px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">87</div></div><div style="position:absolute;top:1774px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">88</div></div><div style="position:absolute;top:1794px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">89</div></div><div style="position:absolute;top:1814px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">90</div></div><div style="position:absolute;top:1834px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">91</div></div><div style="position:absolute;top:1854px;width:100%;height:20px;"><div class="line-numbers" style="left:0px;width:41px;">92</div></div></div></div><div class="monaco-scrollable-element editor-scrollable vs" role="presentation" data-mprt="5" style="position: absolute; overflow: hidden; left: 67px; height: 580px; width: 823px;"><div class="lines-content monaco-editor-background" style="position: absolute; overflow: hidden; width: 1e+06px; height: 1e+06px; will-change: transform; top: -1293px; left: 0px;"><div class="view-overlays" role="presentation" aria-hidden="true" style="position: absolute; height: 0px; width: 823px;"><div style="position:absolute;top:1274px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1294px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1314px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cdr findMatch" style="left:74px;width:41px;height:20px;"></div></div><div style="position:absolute;top:1334px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1354px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1374px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1394px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1414px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1434px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1454px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1474px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1494px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cigr" style="left:65.96875px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1514px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cigr" style="left:65.96875px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1534px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cigr" style="left:65.96875px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1554px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cigr" style="left:65.96875px;height:20px;width:32.984375px"></div><div class="cdr findMatch" style="left:107px;width:41px;height:20px;"></div></div><div style="position:absolute;top:1574px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1594px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1614px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1634px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cigr" style="left:65.96875px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1654px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cigr" style="left:65.96875px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1674px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cigr" style="left:65.96875px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1694px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cigr" style="left:65.96875px;height:20px;width:32.984375px"></div><div class="cdr findMatch" style="left:107px;width:41px;height:20px;"></div></div><div style="position:absolute;top:1714px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1734px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1754px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1774px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cdr findMatch" style="left:66px;width:41px;height:20px;"></div></div><div style="position:absolute;top:1794px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1814px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cdr findMatch" style="left:66px;width:41px;height:20px;"></div></div><div style="position:absolute;top:1834px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div></div><div style="position:absolute;top:1854px;width:100%;height:20px;"><div class="cigr" style="left:0px;height:20px;width:32.984375px"></div><div class="cigr" style="left:32.984375px;height:20px;width:32.984375px"></div><div class="cdr findMatch" style="left:66px;width:41px;height:20px;"></div></div></div><div role="presentation" aria-hidden="true" class="view-rulers"></div><div class="view-zones" role="presentation" aria-hidden="true" style="position: absolute; width: 823px;"><div class="dock-find-viewzone" monaco-view-zone="1" style="position: absolute; width: 100%; display: none; top: 0px; height: 0px;"></div></div><div class="view-lines" role="presentation" aria-hidden="true" data-mprt="7" style="position: absolute; font-family: monospace; font-weight: normal; font-size: 15px; line-height: 20px; letter-spacing: 0px; width: 823px; height: 1934px;"><div style="top:1274px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">if</span><span class="mtk1">&nbsp;strArrCons&nbsp;!=&nbsp;[]:</span></span></div><div style="top:1294px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;consLen&nbsp;=&nbsp;</span><span class="mtk6">len</span><span class="mtk1">(strArrCons)</span></span></div><div style="top:1314px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">#print("Cons&nbsp;count:",consLen)</span></span></div><div style="top:1334px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">else</span><span class="mtk1">:</span></span></div><div style="top:1354px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">#There&nbsp;is&nbsp;no&nbsp;vowel&nbsp;in&nbsp;the&nbsp;given&nbsp;string&nbsp;hence&nbsp;Stuar</span><span class="mtk8">t&nbsp;cannot&nbsp;frame&nbsp;any&nbsp;word</span></span></div><div style="top:1374px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;consLen&nbsp;=&nbsp;</span><span class="mtk7">0</span></span></div><div style="top:1394px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stuart&nbsp;=&nbsp;</span><span class="mtk7">0</span></span></div><div style="top:1414px;height:20px;" class="view-line"><span><span>&nbsp;</span></span></div><div style="top:1434px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">if</span><span class="mtk1">&nbsp;vowelLen&nbsp;!=&nbsp;</span><span class="mtk7">0</span><span class="mtk1">:</span></span></div><div style="top:1454px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">#Identify&nbsp;first&nbsp;occurance&nbsp;of&nbsp;a&nbsp;char&nbsp;in&nbsp;the&nbsp;string</span></span></div><div style="top:1474px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">for</span><span class="mtk1">&nbsp;occurPos&nbsp;</span><span class="mtk6">in</span><span class="mtk1">&nbsp;</span><span class="mtk6">range</span><span class="mtk1">&nbsp;(</span><span class="mtk7">0</span><span class="mtk1">,&nbsp;</span><span class="mtk6">len</span><span class="mtk1">(strArrVowel)):</span></span></div><div style="top:1494px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indexVowel&nbsp;=&nbsp;firstOccurIndex(strArrVow</span><span class="mtk1">el[occurPos],&nbsp;string)</span></span></div><div style="top:1514px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kevinPart&nbsp;=&nbsp;segString(indexVowel,&nbsp;stri</span><span class="mtk1">ng)&nbsp;</span></span></div><div style="top:1534px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kevin&nbsp;+=&nbsp;kevinPart</span></span></div><div style="top:1554px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">#print("Kevin",kevin)</span></span></div><div style="top:1574px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;</span></span></div><div style="top:1594px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">if</span><span class="mtk1">&nbsp;consLen&nbsp;!=&nbsp;</span><span class="mtk7">0</span><span class="mtk1">:</span></span></div><div style="top:1614px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">for</span><span class="mtk1">&nbsp;occurPos&nbsp;</span><span class="mtk6">in</span><span class="mtk1">&nbsp;</span><span class="mtk6">range</span><span class="mtk1">&nbsp;(</span><span class="mtk7">0</span><span class="mtk1">,&nbsp;</span><span class="mtk6">len</span><span class="mtk1">(strArrCons)):</span></span></div><div style="top:1634px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indexCons&nbsp;=&nbsp;firstOccurIndex(strArrCons</span><span class="mtk1">[occurPos],&nbsp;string)</span></span></div><div style="top:1654px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stuartPart&nbsp;=&nbsp;segString(indexCons,&nbsp;stri</span><span class="mtk1">ng)</span></span></div><div style="top:1674px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stuart&nbsp;+=&nbsp;stuartPart</span></span></div><div style="top:1694px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">#print("Stuart",&nbsp;stuart)</span></span></div><div style="top:1714px;height:20px;" class="view-line"><span><span>&nbsp;</span></span></div><div style="top:1734px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">#Decide&nbsp;winner&nbsp;based&nbsp;on&nbsp;score</span></span></div><div style="top:1754px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">if</span><span class="mtk1">&nbsp;kevin&nbsp;&gt;&nbsp;stuart:</span></span></div><div style="top:1774px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">print</span><span class="mtk1">(</span><span class="mtk21">"Kevin"</span><span class="mtk1">,kevin)</span></span></div><div style="top:1794px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">elif</span><span class="mtk1">&nbsp;stuart&nbsp;&gt;&nbsp;kevin:</span></span></div><div style="top:1814px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">print</span><span class="mtk1">(</span><span class="mtk21">"Stuart"</span><span class="mtk1">,&nbsp;stuart)</span></span></div><div style="top:1834px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">elif</span><span class="mtk1">&nbsp;kevin&nbsp;==&nbsp;stuart:</span></span></div><div style="top:1854px;height:20px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">print</span><span class="mtk1">(</span><span class="mtk21">"Draw"</span><span class="mtk1">)</span></span></div></div><div data-mprt="1" class="contentWidgets" style="position: absolute; top: 0px;"><div class="lightbulb-glyph" title="Show Fixes (Ctrl+.)" widgetid="LightBulbWidget" style="position: absolute; visibility: hidden;"></div></div><div role="presentation" aria-hidden="true" class="cursors-layer cursor-line-style cursor-solid"><div class="cursor " style="height: 20px; top: 1914px; left: 215px; font-family: monospace; font-weight: normal; font-size: 15px; line-height: 20px; letter-spacing: 0px; display: none; visibility: hidden; width: 1.25px;"></div></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar horizontal" style="position: absolute; width: 809px; height: 10px; left: 0px; bottom: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; will-change: transform; width: 809px;"></div></div><canvas class="decorationsOverviewRuler" aria-hidden="true" width="11" height="464" style="position: absolute; will-change: transform; top: 0px; right: 0px; width: 14px; height: 580px;"></canvas><div role="presentation" aria-hidden="true" class="invisible scrollbar vertical fade" style="position: absolute; width: 14px; height: 580px; right: 0px; top: 0px;"><div class="slider" style="position: absolute; top: 389px; left: 0px; width: 14px; will-change: transform; height: 173px;"></div></div></div><div role="presentation" aria-hidden="true" style="width: 890px;" class="scroll-decoration"></div><textarea data-mprt="6" class="inputarea" wrap="off" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" aria-label="Editor content;Press Alt+F1 for Accessibility Options." role="textbox" aria-multiline="true" aria-haspopup="false" aria-autocomplete="both" style="font-family: monospace; font-weight: normal; font-size: 15px; line-height: 20px; letter-spacing: 0px; top: 0px; left: 0px; width: 1px; height: 1px;"></textarea><div class="monaco-editor-background textAreaCover line-numbers" style="position: absolute; top: 0px; left: 0px; width: 1px; height: 1px;"></div><div data-mprt="4" class="overlayWidgets" style="width: 890px;"><div class="accessibilityHelpWidget" role="dialog" aria-hidden="true" widgetid="editor.contrib.accessibilityHelpWidget" style="display: none; position: absolute;"><div role="document"></div></div><div class="monaco-editor-hover hidden" aria-hidden="true" role="presentation" widgetid="editor.contrib.modesGlyphHoverWidget" style="position: absolute;"></div><div class="editor-widget find-widget visible" aria-hidden="false" widgetid="editor.contrib.findWidget" style="width: 411px; position: absolute; max-width: 847px; top: 0px; right: 28px;"><div title="Toggle Replace mode" tabindex="0" class="button toggle left collapse" role="button" aria-label="Toggle Replace mode" aria-expanded="false" aria-disabled="false"></div><div class="find-part"><div class="monaco-findInput" style="width: 221px;"><div class="monaco-inputbox idle" data-keybinding-context="2" style="background-color: rgb(255, 255, 255); color: rgb(97, 97, 97);"><div class="wrapper"><input class="input" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" wrap="off" aria-label="Find" placeholder="Find" title="Find" style="width: 155px; background-color: rgb(255, 255, 255); color: rgb(97, 97, 97);"></div></div><div class="controls"><div title="Match Case (Alt+C)" class="monaco-custom-checkbox monaco-case-sensitive unchecked" role="checkbox" aria-checked="false" aria-label="Match Case (Alt+C)" aria-disabled="false" tabindex="0" style="border-color: transparent;"></div><div title="Match Whole Word (Alt+W)" class="monaco-custom-checkbox monaco-whole-word unchecked" role="checkbox" aria-checked="false" aria-label="Match Whole Word (Alt+W)" aria-disabled="false" tabindex="0" style="border-color: transparent;"></div><div title="Use Regular Expression (Alt+R)" class="monaco-custom-checkbox monaco-regex unchecked" role="checkbox" aria-checked="false" aria-label="Use Regular Expression (Alt+R)" aria-disabled="false" tabindex="0" style="border-color: transparent;"></div></div></div><div class="matchesCount" title="" style="min-width: 69px;">7 of 12</div><div title="Previous match (Shift+F3)" tabindex="0" class="button previous" role="button" aria-label="Previous match (Shift+F3)" aria-disabled="false"></div><div title="Next match (F3)" tabindex="0" class="button next" role="button" aria-label="Next match (F3)" aria-disabled="false"></div><div class="monaco-checkbox" title="Find in selection (Alt+L)" tabindex="-1"><input type="checkbox" class="checkbox" id="checkbox-0" tabindex="-1" disabled=""><label class="label" for="checkbox-0" tabindex="-1"></label></div><div title="Close (Escape)" tabindex="0" class="button close-fw" role="button" aria-label="Close (Escape)" aria-disabled="false"></div></div><div class="replace-part"><div class="replace-input" style="width: 221px;"><div class="monaco-inputbox idle" data-keybinding-context="3" style="background-color: rgb(255, 255, 255); color: rgb(97, 97, 97);"><div class="wrapper"><input class="input" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" wrap="off" aria-label="Replace" placeholder="Replace" title="Replace" disabled="" style="background-color: rgb(255, 255, 255); color: rgb(97, 97, 97);"></div></div></div><div title="Replace (Ctrl+Shift+1)" tabindex="-1" class="button replace disabled" role="button" aria-label="Replace (Ctrl+Shift+1)" aria-disabled="true"></div><div title="Replace All (Ctrl+Alt+Enter)" tabindex="-1" class="button replace-all disabled" role="button" aria-label="Replace All (Ctrl+Alt+Enter)" aria-disabled="true"></div></div><div class="monaco-sash vertical"></div></div><div class="findOptionsWidget" role="presentation" aria-hidden="true" widgetid="editor.contrib.findOptionsWidget" style="display: none; top: 0px; position: absolute; right: 28px;"><div title="Match Case (Alt+C)" class="monaco-custom-checkbox monaco-case-sensitive unchecked" tabindex="0" role="checkbox" aria-checked="false" aria-label="Match Case (Alt+C)" style="border-color: transparent;"></div><div title="Match Whole Word (Alt+W)" class="monaco-custom-checkbox monaco-whole-word unchecked" tabindex="0" role="checkbox" aria-checked="false" aria-label="Match Whole Word (Alt+W)" style="border-color: transparent;"></div><div title="Use Regular Expression (Alt+R)" class="monaco-custom-checkbox monaco-regex unchecked" tabindex="0" role="checkbox" aria-checked="false" aria-label="Use Regular Expression (Alt+R)" style="border-color: transparent;"></div></div></div><div data-mprt="8" class="minimap slider-mouseover" role="presentation" aria-hidden="true" style="position: absolute; left: 0px; width: 0px; height: 580px;"><div class="minimap-shadow-hidden" style="height: 580px;"></div><canvas width="1" height="464" style="position: absolute; left: 0px; width: 1.25px; height: 580px;"></canvas><div class="minimap-slider" style="position: absolute; will-change: transform; width: 0px;"><div class="minimap-slider-horizontal" style="position: absolute; width: 0px; height: 0px;"></div></div></div></div><div data-mprt="2" class="overflowingContentWidgets"><div class="monaco-editor rename-box" widgetid="__renameInputWidget" style="height: 20px; box-shadow: rgb(168, 168, 168) 0px 2px 8px; position: absolute; visibility: hidden; max-width: 1707px;"><input class="rename-input" type="text" aria-label="Rename input. Type new name and press Enter to commit." style="font-family: monospace; font-weight: normal; font-size: 15px; background-color: rgb(255, 255, 255); color: rgb(97, 97, 97); border-width: 0px; border-style: none;"></div><div class="monaco-editor-hover hidden" tabindex="0" widgetid="editor.contrib.modesContentHoverWidget" style="position: absolute; visibility: hidden; max-width: 1707px; top: 279px; left: 166px;"><div class="monaco-scrollable-element " role="presentation" style="position: relative; overflow: hidden;"><div class="monaco-editor-hover-content" style="overflow: hidden; font-size: 15px; line-height: 20px; max-height: 250px;"><div class="hover-row"><div><p>print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)</p><p>Prints the values to a stream, or to sys.stdout by default.
+Optional keyword arguments:
+file:  a file-like object (stream); defaults to the current sys.stdout.
+sep:   string inserted between values, default a space.
+end:   string appended after the last value, default a newline.
+flush: whether to forcibly flush the stream.</p></div></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar horizontal" style="position: absolute; width: 490px; height: 10px; left: 0px; bottom: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; will-change: transform; width: 490px;"></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar vertical" style="position: absolute; width: 10px; height: 128px; right: 0px; top: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px; will-change: transform; height: 128px;"></div></div><div class="shadow"></div><div class="shadow"></div><div class="shadow top-left-corner"></div></div></div><div class="editor-widget suggest-widget" widgetid="editor.widget.suggestWidget" style="position: absolute; visibility: hidden; max-width: 1707px; top: 1px; left: 248px; line-height: 20px;"><div class="message" aria-hidden="true" style="display: none; background-color: rgb(239, 239, 242); border-color: rgb(200, 200, 200);"></div><div class="tree" style="background-color: rgb(239, 239, 242); border-color: rgb(200, 200, 200); height: 20px; display: none;" aria-hidden="true"><div class="monaco-list list_id_1 selection-none" role="tree" tabindex="0"><div class="monaco-scrollable-element " role="presentation" style="position: relative; overflow: hidden;"><div class="monaco-list-rows" style="overflow: hidden; height: 0px; top: 0px;"></div><div role="presentation" aria-hidden="true" class="invisible scrollbar horizontal" style="position: absolute; width: 0px; height: 0px; left: 0px; bottom: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; will-change: transform; width: 0px;"></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar vertical" style="position: absolute; width: 10px; height: 20px; right: 0px; top: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px; will-change: transform; height: 20px;"></div></div></div><style type="text/css" media="screen">.monaco-list.list_id_1:focus .monaco-list-row.focused { background-color: #dff0ff; }
+.monaco-list.list_id_1:focus .monaco-list-row.focused:hover { background-color: #dff0ff; }
+.monaco-list.list_id_1:focus .monaco-list-row.selected { background-color: #2477ce; }
+.monaco-list.list_id_1:focus .monaco-list-row.selected:hover { background-color: #2477ce; }
+.monaco-list.list_id_1:focus .monaco-list-row.selected { color: #ffffff; }
+.monaco-list.list_id_1:focus .monaco-list-row.selected.focused { background-color: #2477ce; }
+.monaco-list.list_id_1:focus .monaco-list-row.selected.focused { color: #ffffff; }
+.monaco-list.list_id_1 .monaco-list-row.focused { background-color:  #dff0ff; }
+.monaco-list.list_id_1 .monaco-list-row.focused:hover { background-color:  #dff0ff; }
+.monaco-list.list_id_1 .monaco-list-row.selected { background-color:  #dddfea; }
+.monaco-list.list_id_1 .monaco-list-row.selected:hover { background-color:  #dddfea; }
+.monaco-list.list_id_1 .monaco-list-row:hover { background-color:  #f0f0f0; }</style></div></div><div class="details" aria-hidden="true" style="font-size: 15px; display: none; background-color: rgb(239, 239, 242); border-color: rgb(200, 200, 200);"><div class="monaco-scrollable-element " role="presentation" style="position: relative; overflow: hidden;"><div class="body" style="overflow: hidden;"><div class="header"><span class="close" title="Read less... (Ctrl+Space)" style="height: 20px; width: 20px;"></span><p class="type" style="font-family: monospace;"></p></div><p class="docs"></p></div><div role="presentation" aria-hidden="true" class="invisible scrollbar horizontal" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; will-change: transform;"></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar vertical" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px; will-change: transform;"></div></div><div class="shadow"></div><div class="shadow"></div><div class="shadow top-left-corner"></div></div></div></div><div class="editor-widget parameter-hints-widget" widgetid="editor.widget.parameterHintsWidget" style="position: absolute; visibility: hidden; max-width: 1707px; font-size: 15px; max-height: 250px; top: 81px; left: 207px;"><div class="wrapper"><div class="buttons"><div class="button previous"></div><div class="button next"></div></div><div class="overloads">1/1</div><div class="monaco-scrollable-element " role="presentation" style="position: relative; overflow: hidden;"><div class="body" style="overflow: hidden;"><div class="signature has-docs"><div class="code" style="font-size: 15px; font-family: monospace;"><span>print(</span><span class="parameter ">value</span><span>, </span><span class="parameter active">...</span><span>, </span><span class="parameter ">sep</span><span>=' ', </span><span class="parameter ">end</span><span>='\n', </span><span class="parameter ">file</span><span>=sys.stdout, </span><span class="parameter ">flush</span><span>=False)</span></div></div><div class="docs"><p>print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+
+Prints the values to a stream, or to sys.stdout by default.
+Optional keyword arguments:
+file:&nbsp;&nbsp;a file-like object (stream); defaults to the current sys.stdout.
+sep:&nbsp;&nbsp; string inserted between values, default a space.
+end:&nbsp;&nbsp; string appended after the last value, default a newline.
+flush: whether to forcibly flush the stream.</p></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar horizontal" style="position: absolute; width: 430px; height: 10px; left: 0px; bottom: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; will-change: transform; width: 430px;"></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar vertical fade" style="position: absolute; width: 10px; height: 250px; right: 0px; top: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px; will-change: transform; height: 229px;"></div></div><div class="shadow"></div><div class="shadow"></div><div class="shadow top-left-corner"></div></div></div></div></div><div class="context-view monaco-builder-hidden" aria-hidden="true"></div></div></div></div></div><div class="hr-monaco-editor-statusbar"><div class="statusbar-position">Line: 95 Col: 27</div><div style="display: flex;"><div class="statusbar-message"></div></div></div></div><div class="pmR pmL pmB plT run-code-wrapper"><button class=" pull-right btn btn-primary hr-monaco-submit">Submit Code</button><button class=" pull-right btn msR hr-monaco-compile">Run Code</button></div></div><div class="pmR pmL pmB hr-monaco-custom-input-wrapper inline"><div><button class="btn btn-text upload-file mlR" data-analytics="Upload File" type="button"><i class="icon-upload ui-icon-upload"></i>Upload Code as File</button></div><div><label><div class="custom-checkbox inline"><input type="checkbox" class="custom-input-checkbox"></div><span class="lmT msL testcase-label">Test against custom input</span></label></div></div></div></div></div><div class="challenge-response fs-container"><div class="output-area-wrap"><div class="output-area mlT psT" id="output-area"><div class="code-compile-test-view theme-m-content"><div class="compile-error-wrapper"><p class="status compile-success">Congratulations!</p><p class="compile-advice">You have passed the sample test cases. Click the submit button to run your code against all the test cases.</p></div><div class="tc-container"><div class="testcase-wrapper theme-m"><div class="ui-tabs-wrap testcases-result-wrapper theme-m vertical-layout"><div class="render-list clearfix"><ul class="tab-header" role="tablist"><li id="Sample Test case 0" class="tab-item active" role="tab" aria-selected="true"><div class="testcase-tab-item tab-item-color-success testcase-item" data-attr2="master" data-attr3="the-minion-game" data-analytics="TestCaseResultsTab" data-attr1="RunCode" data-attr5="0"><span class="ui-icon-label tab-item-label">Sample Test case 0</span><i class="ui-icon-check-circle"></i></div></li></ul></div><div class="tab-list-content tab-content d-flex" role="tabpanel"><div class="tab-pane-content"><div class="flex-block compilation-time-response full-width flex-column"><div class="stdin run-time-message flex-display"><div class="compile-field-label">Input (stdin)<a data-attr2="master" data-attr3="the-minion-game" data-analytics="DownloadTestcase" data-attr1="RunCode" data-attr4="stdin" data-attr7="0" data-attr6="right" class="text-link tc-download-link">Download</a></div><pre class="compile-output-message"><code class="bold">BANANA</code></pre></div><div class="stdout run-time-message flex-display"><div class="compile-field-label">Your Output (stdout)</div><pre class="compile-output-message"><code class="bold">Stuart 12
+</code></pre></div><div class="expected-output run-time-message flex-display"><div class="compile-field-label">Expected Output<a data-attr2="master" data-attr3="the-minion-game" data-analytics="DownloadTestcase" data-attr1="RunCode" data-attr4="expected-output" data-attr7="0" data-attr6="right" class="text-link tc-download-link">Download</a></div><pre class="compile-output-message"><code class="bold">Stuart 12</code></pre></div></div></div></div></div></div></div></div></div></div></div></section></div><div class="right-pane"><aside class="theme-m-content fullscreen-hide challenge-sidebar"><div class="challenge-sidebar-container"><div class="sidebar-problem-difficulty challenge-sidebar-help"><div class="difficulty-block"><p class="difficulty-label">Author</p><a class="pull-right text-link" data-analytics="ChallengeViewHeaderAuthor" data-attr1="the-minion-game" data-attr2="DOSHI" href="https://www.hackerrank.com/profile/DOSHI">DOSHI</a></div><div class="difficulty-block"><p class="difficulty-label">Difficulty</p><p class="pull-right difficulty-medium">Medium</p></div><div class="difficulty-block"><p class="difficulty-label">Max Score</p><p class="sidebar-detail pull-right">40</p></div><div class="difficulty-block"><p class="difficulty-label">Submitted By</p><a class="pull-right text-link" data-analytics="ChallengeViewHackerCount" data-attr1="the-minion-game" href="https://www.hackerrank.com/challenges/the-minion-game/leaderboard">35279</a></div></div><div class="challenge-sidebar-help"><h2 class="text-sec-headline-s">Need Help?</h2><hr class="hr-line-light"><div class="mlB"><div class="link-wrapper"><a data-analytics="ChallengeSidebarUI" data-attr1="discussions" data-attr2="the-minion-game" data-attr3="master" href="https://www.hackerrank.com/challenges/the-minion-game/forum"><i class="ui-icon-discussion ui-icon-grey sidebar-icon"></i><span class="ui-icon-label">View discussions</span></a></div><div class="link-wrapper"><a data-analytics="ChallengeSidebarUI" data-attr1="editorial" data-attr2="the-minion-game" data-attr3="master" href="https://www.hackerrank.com/challenges/the-minion-game/editorial"><i class="ui-icon-editorial ui-icon-grey sidebar-icon"></i><span class="ui-icon-label">View editorial</span></a></div><div class="link-wrapper"><a data-analytics="ChallengeSidebarUI" data-attr1="topscorers" data-attr2="the-minion-game" data-attr3="master" href="https://www.hackerrank.com/challenges/the-minion-game/leaderboard"><i class="ui-icon-trophy ui-icon-grey sidebar-icon"></i><span class="ui-icon-label">View top submissions</span></a></div></div></div><div class="challenge-rating rating"><p class="zeta rating-label">rate this challenge</p><div class="rating"><i class="rating-icon cursor ui-icon-star" data-analytics="RatedChallenge" data-attr7="1"></i><i class="rating-icon cursor ui-icon-star" data-analytics="RatedChallenge" data-attr7="2"></i><i class="rating-icon cursor ui-icon-star" data-analytics="RatedChallenge" data-attr7="3"></i><i class="rating-icon cursor ui-icon-star" data-analytics="RatedChallenge" data-attr7="4"></i><i class="rating-icon cursor ui-icon-star" data-analytics="RatedChallenge" data-attr7="5"></i></div></div><div class="challenge-sidebar-help need-help-wrapper"><div class="text-sec-headline-s">MORE DETAILS</div><hr class="hr-line-light"><div class="link-wrapper"><a target="_blank" id="pdf-link" data-analytics="ChallengeViewSidebarPDF" data-attr1="the-minion-game" href="https://www.hackerrank.com/rest/contests/master/challenges/the-minion-game/download_pdf?language=English"><i class="ui-icon-grey sidebar-icon ui-icon-download"></i><span class="ui-icon-label">Download problem statement</span></a></div><div class="link-wrapper"><a target="_blank" id="test-cases-link" data-analytics="ChallengeViewSidebarTestCases" data-attr1="the-minion-game" href="https://www.hackerrank.com/rest/contests/master/challenges/the-minion-game/download_testcases"><i class="ui-icon-grey sidebar-icon ui-icon-download"></i><span class="ui-icon-label">Download sample test cases</span></a></div><div class="link-wrapper fullscreen-hide"><a class="cursor" data-analytics="ChallengeViewSuggestEdit" data-attr1="the-minion-game"><i class="ui-icon-grey sidebar-icon ui-icon-edit"></i><span class="ui-icon-label">Suggest Edits</span></a></div></div><div class="social-share-wrap-2"><div class="clearfix"><div class="social-links-wrapper pull-left"><a class="cursor"><i class="social-share-icon ui-icon-facebook"></i></a><a class="cursor"><i class="social-share-icon ui-icon-twitter"></i></a><a class="cursor"><i class="social-share-icon ui-icon-linkedin"></i></a></div></div></div></div></aside></div></div></div></div></section></div></div><footer class="community-footer"><ul class="footer-links"><li class="link-item"><a target="_blank" class="footer-link calendar" data-analytics="FooterLinkCalendar" href="https://www.hackerrank.com/calendar">Contest Calendar</a></li><li class="link-item"><a target="_blank" class="footer-link blog" data-analytics="FooterLinkBlog" href="https://blog.hackerrank.com/">Blog</a></li><li class="link-item"><a target="_blank" class="footer-link scoring" data-analytics="FooterLinkScoring" href="https://www.hackerrank.com/scoring">Scoring</a></li><li class="link-item"><a target="_blank" class="footer-link environment" data-analytics="FooterLinkEnvironment" href="https://www.hackerrank.com/environment">Environment</a></li><li class="link-item"><a target="_blank" class="footer-link faq" data-analytics="FooterLinkFAQ" href="https://www.hackerrank.com/faq">FAQ</a></li><li class="link-item"><a target="_blank" class="footer-link" data-analytics="FooterLinkAboutUs" href="https://www.hackerrank.com/aboutus">About Us</a></li><li class="link-item"><a target="_blank" class="footer-link" data-analytics="FooterLinkSupport" href="https://help.hackerrank.com/hc/en-us">Support</a></li><li class="link-item"><a target="_blank" class="footer-link" data-analytics="FooterLinkCareers" href="https://www.hackerrank.com/careers">Careers</a></li><li class="link-item"><a target="_blank" class="footer-link" data-analytics="FooterLinkTermsOfService" href="https://www.hackerrank.com/terms-of-service">Terms Of Service</a></li><li class="link-item"><a target="_blank" class="footer-link" data-analytics="FooterLinkPrivacyPolicy" href="https://www.hackerrank.com/privacy">Privacy Policy</a></li><li class="link-item"><a target="_blank" class="footer-link featureRequestButton" data-analytics="FooterLinkFeatureRequest" href="https://www.hackerrank.com/support/feature">Request a Feature</a></li></ul></footer></div></div></div></div><!--Required to handle event bubbling of click in ios safari -->
+
+  <script>
+    //HR namespace
+    var HR = {};
+    HR.development = false;
+    HR.assetPath = 'https://hrcdn.net/fcore/assets/';
+    HR.pageLoadTime = Date.now();
+    HR.productNamespace = 'hackerrank';
+    HR.production = true;
+    HR.devServer = false;
+    HR.isIsomorphic = true;
+    HR.loadedWithOldCss = false;
+    HR.pusher = {"key":"a280047e3b323ccb1b65","cluster":"mt1"};
+  </script>
+
+  <!-- Vendor scripts -->
+  
+    <script src="./The Minion Game _ HackerRank_files/hackerrank_r_vendor-4dd797fb49.js.download"></script>
+  
+
+  
+  <script src="./The Minion Game _ HackerRank_files/runtime-d355cce3b4bfc36d64e2.js.download"></script>
+  <script src="./The Minion Game _ HackerRank_files/hackerrank_r_app-22753ab00c0a48bfa67b.js.download"></script>
+  
+<script>
+  var getUser = (function() {
+    var userData;
+    $(window).on('initializeNewUser', function(e, user) {
+      userData = user;
+    });
+    try{
+      if (typeof userData === 'undefined') {
+        userData = JSON.parse(decodeURI($('#initialUserData').html()));
+        $('#initialUserData').remove();
+      }
+    } catch(e){
+      userData = {};
+      console.log('No initial User data found');
+    }
+    return function() {
+      return userData;
+    }
+  })();
+</script>
+
+
+<!-- setting up sentry -->
+
+  <script src="./The Minion Game _ HackerRank_files/raven.min.js.download" async="" crossorigin="anonymous" id="raven"></script>
+  <script>
+    (function(window, queue, loaded, script, user) {
+
+        var setupRaven = function(user) {
+          var userContext = {};
+          if (user && !!user.id) {
+            userContext.handle = user.id;
+          }
+          var extraContext = {
+            cdnUrl: Cookies.get("cdn_url")
+          }
+          if (Cookies) {
+            if (HR.productNamespace === 'hackerrank') {
+              extraContext.mixpanel_token = Cookies.get('hackerrank_mixpanel_token')
+            } else if (HR.productNamespace === 'hackerrankx') {
+              extraContext.mixpanel_token = Cookies.get('hackerrankx_mixpanel_token')
+            }
+          }
+          if(typeof Raven !== 'undefined') {
+            Raven.setUserContext(userContext);
+            Raven.setExtraContext(extraContext);
+          }
+        }
+        $(window).on('initializeNewUser', function(e, user) {
+          setupRaven(user);
+        });
+
+        window.onerror = function e(message, file, lineNo, columnNo, error) {
+            if (loaded) return;
+            queue.push([message, file, lineNo, columnNo, error]);
+        };
+
+        window.onunhandledrejection = function e(error) {
+            if (loaded) return;
+            queue.push([
+                error.reason,
+            ]);
+        };
+
+        script.onreadystatechange = script.onload = function() {
+            if (loaded) return;
+            loaded = true;
+
+            Raven.config('https://6b2d52b23d5a4dd4bc44330335327c04@sentry.io/234162', {
+                release: "4798225f1e",
+                ignoreUrls: [/cdn\.userty\.com/],
+                ignoreErrors: [
+                  'Error: Connection is disposed',
+                  'Connection got disposed',
+                  'A network error occurred',
+                  'Model is disposed!',
+                ],
+            }).install();
+
+            setupRaven(user);
+
+            window.onunhandledrejection = function e(error) {
+                Raven.captureException(error.reason, {
+                    extra: {
+                        type: error.type,
+                    },
+                });
+            };
+
+            queue.forEach(function(error) {
+                Raven.captureException(error[4] || error[0], {
+                    extra: {
+                        file: error[1],
+                        line: error[2],
+                        col: error[3],
+                    },
+                });
+            });
+        };
+    }(window, [], false, document.getElementById('raven'), getUser()));
+ </script>
+
+
+
+
+<!-- google analytics tracking -->
+<script>
+  var _gaq = _gaq || [];
+  
+  _gaq.push(['candidate_company._setAccount', 'UA-45092266-1']);
+  _gaq.push(['candidate_company._trackPageview']);
+  _gaq.push(['candidate_company._gat._anonymizeIp']);
+  _gaq.push(['_setCampSourceKey', 'utm_source']);
+  _gaq.push(['_setCampMediumKey', 'utm_medium']);
+  _gaq.push(['_setCampContentKey', 'utm_keyword']);
+  _gaq.push(['_setCampTermKey', 'utm_keyword']);
+  _gaq.push(['_setCampNameKey', 'utm_campaign']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  
+</script>
+<!-- Pending candidate site custom GA code -->
+<!-- google analytics tracking end-->
+
+<!-- mixpanel tracking -->
+<script type="text/javascript">
+  
+    (function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+    mixpanel.init("bcb75af88bccc92724ac5fd79271e1ff");
+
+    
+      
+        mixpanel.init("86cf4681911d3ff600208fdc823c5ff5", {}, "jobs_test");
+      
+      mixpanel.identify(Cookies.get("hackerrank_mixpanel_token"));
+    
+  
+</script>
+<!-- mixpanel tracking end-->
+
+<!-- auryc tracking start -->
+<script type="text/javascript">
+  
+    function aurycProps(user) {
+      if(HR.productNamespace === 'hackerrankx') {
+        userProps = {
+          user_role: user.role,
+          company_id: user.company.id,
+          plan_name: user.company.plan_name
+        }
+      } else if (HR.productNamespace === 'hackerrank') {
+        userProps = {
+          user_id: user.id,
+        };
+      } else {
+        userProps = {};
+      }
+      return userProps;
+    }
+
+    function setupAurycProps(aurycId, user) {
+      userProps = aurycProps(user);
+      window.auryc.identify(aurycId);
+      window.auryc.addUserProperties(userProps);
+      window.auryc.setFeedbackEnabled(!!user.enable_nps_survey);
+      window.auryc.addSessionProperties({productNamespace: HR.productNamespace});
+    }
+
+    setupAuryc = function(user) {
+      hackerrankxAurycSrc = "//cdn.userty.com/207-hackerrankcom/container.js";
+      hackerrankAurycSrc = "//cdn.userty.com/531-hackerrankCommunity/container.js";
+      if(HR.productNamespace === 'hackerrankx') {
+        if (!(user && user.id) || !!Cookies.get('admin_su') || user.disable_auryc) return;
+        src = hackerrankxAurycSrc;
+        aurycId = user.id.toString();
+      } else {
+        return
+      }
+
+      ;(function (g) { g.aurycReadyCb = g.aurycReadyCb || []; var d = document, i, am = d.createElement("script"), h = d.head || d.getElementsByTagName("head")[0],aex = { "src": src, "data-cfasync": "false", "async": "true", "defer": "true", "data-vendor": "userty", "data-role": "container", "charset": "utf-8" }; for (var attr in aex) { am.setAttribute(attr,aex[attr]); } h.appendChild(am); })(window);
+
+      if (window.auryc) {
+        setupAurycProps(aurycId, user)
+      } else if (window.aurycReadyCb) {
+        window.aurycReadyCb.push(function() {
+          setupAurycProps(aurycId, user)
+        })
+      }
+    }
+
+    setupAuryc(getUser());
+    $(window).on('initializeNewUser', function(e, user) {
+      setupAuryc(user);
+    });
+  
+</script>
+<!-- auryc tracking end -->
+
+<!-- GTM tracking -->
+
+<script type="text/javascript">
+  var gtmTracking = function (user){
+    if (window.dataLayer) {
+      
+
+      
+        window.dataLayer.push({'event': 'setUserProps', 'userProps': {
+          level: user.level,
+          badges_onboarding_status: user.badges_onboarding_status,
+          sourcing_jobs_consent: user.sourcing_jobs_consent
+        }});
+      
+    }
+  }
+  gtmTracking(getUser());
+  $(window).on('initializeNewUser', function(e, user) {
+    gtmTracking(user);
+  });
+
+</script>
+
+<!-- GTM tracking end -->
+
+
+<!-- Google Tag Manager (noscript) #1 -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FXW96J"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) #1 -->
+
+
+<!-- Marketo to be added later -->
+
+
+
+<!-- Bizible -->
+
+<!-- HR metrics init -->
+<script type="text/javascript">
+
+  (function() {
+    hr_metrics.init({
+      product: 'hackerrank',
+      use_cookie: true,
+      uid_cookie_key: 'hackerrank_mixpanel_token',
+      uid_token_cookie_key: 'metrics_user_identifier',
+      session_cookie_key: 'session_id',
+      metrics_endpoint:  'https://metrics.hackerrank.com/metrics' 
+    });
+  })();
+
+  (function(h) {
+    window.hr_metrics = h;
+    if (!h.loaded) {
+      var a = ['track', 'batch_track', 'app_track', 'externalService', 'init', 'batch_track_record', 'track_dwell_time', 'set_navigation_data'];
+      for (var i = 0; i < a.length; i++) {
+        if (!h[a[i]]) {h[a[i]] = function() {};}
+      }
+    }
+  })(window.hr_metrics || {});
+
+
+
+</script>
+
+<!-- hrutm_params -->
+
+<!-- HR metrics extension pack -->
+<script type="text/javascript">
+
+  
+    if (('performance' in window) && ('timing' in window.performance)) {
+      $(window).on("load", function() {
+        setTimeout(function(){
+          var timing = window.performance.timing;
+          var obj = {
+            referring_url: window.location.pathname,
+            fullLoadTime: timing.loadEventEnd - timing.navigationStart,
+            // Total time from req start to load
+            loadTime: timing.loadEventEnd - timing.fetchStart,
+            // Time spent constructing the DOM tree
+            domReadyTime: timing.domComplete - timing.domInteractive,
+            // Time consumed preparing the new page
+            readyStart: timing.fetchStart - timing.navigationStart,
+            // Time spent during redirection
+            redirectTime: timing.redirectEnd - timing.redirectStart,
+            // AppCache
+            appcacheTime: timing.domainLookupStart - timing.fetchStart,
+            // Time spent unloading documents
+            unloadEventTime: timing.unloadEventEnd - timing.unloadEventStart,
+            // DNS query time
+            lookupDomainTime: timing.domainLookupEnd - timing.domainLookupStart,
+            // TCP connection time
+            connectTime: timing.connectEnd - timing.connectStart,
+            // Time spent during the request
+            requestTime: timing.responseEnd - timing.requestStart,
+            // Request to completion of the DOM loading
+            initDomTreeTime: timing.domInteractive - timing.responseEnd,
+            // Load event time
+            loadEventTime: timing.loadEventEnd - timing.loadEventStart,
+            // Origin of the request
+            react: true,
+            //isIsomorphic flag
+            isIsomorphic: window.HR.isIsomorphic,
+            //old css loaded flag
+            loadedWithOldCss: window.HR.loadedWithOldCss,
+          }
+
+          if (('navigation' in window.performance) && ('getEntries' in window.performance)) {
+            obj.navigationType = window.performance.navigation.type;
+            obj.navigationRedirectCount = window.performance.navigation.redirectCount;
+            if (obj.fullLoadTime > 8000) {
+              try {
+                var entries = window.performance.getEntries();
+                if(entries[0].toJSON){
+                  obj.networkRequests = entries.map(function(e) {return e.toJSON();});
+                }
+              } catch (e) {
+                //do nothing
+              }
+            }
+          }
+
+          hr_metrics.app_track('page-load-metrics', obj);
+        }, 1000);
+      });
+    }
+  
+
+  $(window).on("load", function() {
+      var _pathname = document.location.pathname;
+      var cdn_url_switched = Cookies.get("cdn_url_switched");
+      if (cdn_url_switched !== '') {
+        Cookies.remove('cdn_url_switched');
+      }
+      hr_metrics.batch_track('PageLoad', _pathname + document.location.search, {
+          attribute1: _pathname,
+          attribute6: cdn_url_switched,
+          cdn_url: Cookies.get("cdn_url")
+      });
+
+      if (hr_metrics.track_dwell_time) {
+          hr_metrics.track_dwell_time(_pathname);
+          hr_metrics.set_navigation_data();
+      }
+
+      $(window).on('beforeunload', function(){
+
+          var _pathname = document.location.pathname;
+          hr_metrics.batch_track('PageClose', _pathname + document.location.search, {
+              attribute2: _pathname
+          });
+
+          hr_metrics.track_dwell_time(_pathname, true);
+
+          hr_metrics.batch_track_record(true);
+      });
+
+  });
+
+</script>
+
+<!-- Facebook SDK -->
+<!-- Twitter SDK -->
+
+<!-- track button clicks -->
+<script>
+    $(document).on('click', 'a, button, input, select, i, div, span, h5', null, function(e) {
+        var src = e.currentTarget, $src = $(e.currentTarget);
+        if ($src.attr('data-analytics')) {
+            action = 'Click'; data = $src.attr('data-analytics');
+        } else {
+            return;
+        }
+
+        
+          hr_metrics.batch_track(action, data, (function() {
+              var params={};
+              for (var _i=1; _i<=12; ++_i){
+                  var _attr = 'data-attr'+_i;
+                  if ($src.attr(_attr)){
+                    params['attribute'+_i] = $src.attr(_attr);
+                  }
+              }
+              var attributes = src.attributes, attr_length = src.attributes.length;
+              for (var i = 0; i < attr_length; i++){
+                var attribute = attributes[i];
+                if (attribute.name.indexOf('data-attr-') === 0){
+                  param_name = attribute.name.substr('data-attr-'.length);
+                  if (param_name.length > 0) {
+                    params[param_name] = attribute.value;
+                  }
+                }
+              }
+              return params;
+          })());
+        
+
+        
+          // google analytics
+          _gaq.push(['_trackEvent', 'Events' , action, data])
+        
+    });
+
+    $(document).on('AnalyticsEvent', function(e) {
+        action = e.event_type || false;
+        data = e.event_name || false;
+
+        if (!action || !data) {
+          return;
+        }
+
+        params = {}
+        params['attribute1'] = e.event_value || ""
+        params['attribute7'] = e.integer_event_value
+
+        if (window.HR && window.HR.current_page) {
+          params['attribute2'] = window.HR.current_page;
+        }
+
+        if (window.HR && window.HR.current_contest) {
+          params['attribute3'] = window.HR.current_contest.get('name');
+        }
+
+        
+            hr_metrics.batch_track(action, data, params);
+        
+
+        
+          // google analytics
+          _gaq.push(['_trackEvent', 'Events' , action, data]);
+        
+    });
+
+  </script>
+<!-- track button clicks end-->
+
+<!-- Linkedin Insights -->
+
+
+
+
+<div class="monaco-aria-container"><div class="monaco-alert" role="alert" aria-atomic="true" style="visibility: visible;">count1, suggestion, has details</div><div class="monaco-status" role="status" aria-atomic="true"></div></div></body></html>
